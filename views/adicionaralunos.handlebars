@@ -1,0 +1,62 @@
+<!-- CADASTRO -->
+    <div class="cadastro">
+        <form action="/alunos/add" method="post">
+            <h1 class="title-cadastro">Cadastrar aluno</h1>
+            <div class="grid-info">
+                <p class="nome-completo">
+                    <label class="nome-label" for="nome_cad">Nome completo:</label>
+                    <input class="nome-input" id="nome" name="nome" required type="text"
+                        placeholder="nome do aluno" />
+                </p>
+              {{!--   <div>
+                    <label class="tipo-aluno" for="tipo-aluno">Tipo do aluno:</label>
+                    <div class="div-tipo">
+                        <input class="input-tipo" type="radio" id="html" name="fav_language" value="HTML">
+                        <label for="html">Mensalista</label><br>
+                        <input class="input-tipo" type="radio" id="tipo-vip" name="tipoaluno" value="vip">
+                        <label for="vip">Vip</label><br>
+                        <input class="input-tipo" type="radio" id="tipo-flex" name="tipoaluno" value="flex">
+                        <label for="flex">Flex</label>
+                    </div>
+                </div> --}}
+                <p class="cpf-aluno">
+                    <label class="cpf-aluno" for="cpf">CPF:</label>
+                    <input class="nome-input" id="cpf" name="cpf" required type="text" placeholder="Insira o CPF" />
+                </p>
+
+                <p class="endereço">
+                    <label class="endereço-aluno" for="nome_cad">Endereço:</label>
+                    <input class="nome-input" id="endereco" name="endereco" required type="text"
+                        placeholder="Insira o endereço" />
+                </p>
+
+                <p class="data-nascimento">
+                    <label class="data-aluno" for="nome_cad">Nascimento:</label>
+                    <input class="nome-input" id="nascimento" name="nascimento" required type="text" />
+                </p>
+
+                <p class="matricula">
+                    <label class="nome-label" for="nome_cad">Nº Matrícula:</label>
+                    <input class="nome-input" id="matricula" name="matricula" required type="number" placeholder="" />
+                </p>
+
+                <p>
+                    <label for="email">E-mail:</label>
+                    <input id="email" name="email" required type="email" placeholder="Insira o email" />
+                </p>
+
+                <p>
+                    <label for="telefone">Telefone:</label>
+                    <input id="telefone" name="telefone" required type="text" placeholder="1234" />
+                </p>
+
+            </div>
+
+            <input type="hidden" name="novo_aluno" value="1">
+
+            <p>
+                <input class="btn btn-secondary btn-cadastrar-submit" style="background-color: #343a40;" type="submit"
+                    value="Cadastrar aluno" />
+            </p>
+        </form>
+    </div>

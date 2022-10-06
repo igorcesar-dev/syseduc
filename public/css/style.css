@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo {
+    width: 800px;
+    display: block;
+    margin: 0 auto;
+    opacity: calc(0.2);
+}
+
+.logo-nav {
+    width: 60px;
+}
+
+/* EXIBIR ALUNOS */
+.box-aluno {
+    width: 600px;
+    margin-top: 2em;
+    border: solid 0.1em;
+    border-radius: 10px;
+}
+
+.box-aluno-left {
+    width: 90%;
+}
+
+#alunos {
+    width: 50%;
+    display: block;
+    margin-left: 120px;
+}
+
+.matricula-aluno {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.nome-aluno {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+/* Barra de pesquisa */
+#searchbar {
+    width: 700px;
+    height: 45px;
+    margin: 50px 10px 50px 120px;
+    border: solid 1px;
+    border-radius:10px;
+    padding: 10px;
+    font-size: 20px;
+}
+
+.box-buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.btn-info {
+    width: 450px;
+    height: 60px;
+    display: inline-block;
+    margin: 10px 10px;
+    border: solid 0.1px;
+    border-radius: 10px;
+    font-size: 15px;
+    background-color: #343a40;
+    color: #fff;
+}
+
+.btn-excluir img {
+    width: 50px;
+    height: 50px;
+}
+
+.btn-excluir {
+    height: 60px;
+    border: solid 0.1px;
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: #343a40;
+}
+
+.btn-editar {
+    height: 60px;
+    border: solid 0.1px;
+    border-radius: 10px;
+    background-color: #343a40;
+}
+
+.btn-editar img {
+    width: 50px;
+    height: 50px;
+}
+
+
+
+
+/* Página do modal */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    z-index: -10;
+}
+
+/* EDITAR */
+.modal-editar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    z-index: -10;
+}
+
+.modal-cadastrar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+    z-index: -10;
+}
+
+.modal-container-edit {
+    width: 95%;
+    height: 70%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+}
+
+.modal-container-cadastro {
+    width: 95%;
+    height: 70%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+}
+
+.close-button {
+    width: 0px;
+    height: 0px;
+    border: none;
+    display: block;
+    border-radius: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.close-button-cad {
+    width: 0px;
+    height: 0px;
+    border: none;
+    display: block;
+    border-radius: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.modal-container {
+    width: 400px;
+    height: 150px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    background-color: white;
+    font-size: 1.3rem;
+    border-radius: 1rem;
+}
+
+.modal-container h3 {
+    font-size: 21px;
+    margin-top: 3rem;
+    margin-left: 2.5rem;
+}
+
+.close-btn {
+    width: 0px;
+    height: 0px;
+    border: none;
+    display: block;
+    border-radius: 100%;
+    color: red;
+    font-weight: bold;
+    font-size: 2rem;
+    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.btn-class {
+    position: relative;
+    display: flex;
+    margin-bottom: 300px;
+}
+
+/* Visibilidade do modal */
+.open-modal {
+    visibility: visible;
+    z-index: 10;
+}
+
+
+.btn-opcoes {
+    display: flex;
+    position: absolute;
+    margin-top: 5rem;
+}
+
+.opcoes {
+    width: 8rem;
+    height: 2rem;
+    margin: 1rem;
+}
+
+.input-edit::placeholder {
+    color: #000;
+
+}

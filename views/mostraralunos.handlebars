@@ -1,0 +1,28 @@
+<!-- Pesquisar e Adicionar alunos -->
+<div class="box-container">
+    <input id="searchbar" onkeyup="procurarAluno()" type="text" name="search" placeholder="Procurar aluno">
+    <button class="btn-cadastrar btn btn-secondary"
+        style="height: 45px; vertical-align: unset; background-color: #343a40"><a
+            style="text-decoration: none; color:#fff;" href="/alunos/adicionaralunos">Novo aluno</a></button>
+
+    <!-- Exibe os alunos-->
+    {{#each alunos}}
+
+    <div id="alunos">
+        <div class="box-aluno">
+            <div class="box-aluno-left">
+                <h1 class="matricula-aluno"> Matricula: {{dataValues.matricula}}</h1>
+                <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
+            </div>
+            <div class="box-buttons">
+                <button class="btn-info">Exibir mais informações</button>
+
+                <button class="btn-excluir"><img src="/img/delete.png" alt="logo-trash"></button>
+
+                <button class="btn-editar"><img src="/img/edit.png" alt="logo-trash"></button>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+</div>
