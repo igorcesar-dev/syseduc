@@ -10,6 +10,14 @@ router.get('/adicionaralunos', (req, res) => {
     res.render('adicionaralunos');
 });
 
+router.get('/msg-exclusao', (req, res) => {
+    res.render('msg-exclusao');
+});
+
+router.get('/editaralunos', (req, res) => {
+    res.render('editaralunos');
+});
+
 // ADD ALUNO VIA POST
 router.post('/add', (req, res) => {
     let {matricula, nome, cpf, nascimento, responsavel, endereco, email, telefone} = req.body;
@@ -25,7 +33,7 @@ router.post('/add', (req, res) => {
         email,
         telefone,
     })
-    .then(() => res.redirect('/'))
+    .then(() => res.redirect('mostraralunos'))
     .catch(err => console.log(err));
 
 });

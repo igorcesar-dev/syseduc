@@ -37,6 +37,11 @@ body {
     margin-left: 120px;
 }
 
+#pesquisa {
+    width: 100%;
+    display: inline;
+}
+
 .matricula-aluno {
     width: 100%;
     height: 40px;
@@ -56,10 +61,10 @@ body {
 }
 
 /* Barra de pesquisa */
-#searchbar {
+#aluno {
     width: 700px;
     height: 45px;
-    margin: 50px 10px 50px 120px;
+    margin: 50px 10px 20px 120px;
     border: solid 1px;
     border-radius:10px;
     padding: 10px;
@@ -73,16 +78,29 @@ body {
 }
 
 .btn-info {
-    width: 450px;
+    width: 100%;
     height: 60px;
     display: inline-block;
     margin: 10px 10px;
     border: solid 0.1px;
     border-radius: 10px;
-    font-size: 15px;
     background-color: #343a40;
-    color: #fff;
+    text-decoration: none;
+    color: #fff;   
 }
+
+.btn-info:hover {
+    color: rgb(177, 177, 177);
+}
+
+.btn-info span {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
 
 .btn-excluir img {
     width: 50px;
@@ -98,20 +116,6 @@ body {
     background-color: #343a40;
 }
 
-.btn-editar {
-    height: 60px;
-    border: solid 0.1px;
-    border-radius: 10px;
-    background-color: #343a40;
-}
-
-.btn-editar img {
-    width: 50px;
-    height: 50px;
-}
-
-
-
 
 /* Página do modal */
 .modal-overlay {
@@ -123,21 +127,7 @@ body {
     background-color: #00000080;
     display: grid;
     place-items: center;
-    visibility: hidden;
-    z-index: -10;
-}
-
-/* EDITAR */
-.modal-editar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #00000080;
-    display: grid;
-    place-items: center;
-    visibility: hidden;
+    
     z-index: -10;
 }
 
@@ -152,17 +142,6 @@ body {
     place-items: center;
     visibility: hidden;
     z-index: -10;
-}
-
-.modal-container-edit {
-    width: 95%;
-    height: 70%;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    background-color: white;
-    font-size: 1.3rem;
-    border-radius: 1rem;
 }
 
 .modal-container-cadastro {
@@ -255,9 +234,4 @@ body {
     width: 8rem;
     height: 2rem;
     margin: 1rem;
-}
-
-.input-edit::placeholder {
-    color: #000;
-
 }
