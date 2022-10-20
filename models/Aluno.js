@@ -17,8 +17,23 @@ const Aluno = db.define('aluno', {
     responsavel: {
         type: Sequelize.BOOLEAN,
     },
-    endereco: {
+    rua: {
         type: Sequelize.STRING,
+    },
+    bairro: {
+        type: Sequelize.STRING,
+    },
+    numero: {
+        type: Sequelize.INTEGER,
+    },
+    cidade: {
+        type: Sequelize.STRING,
+    },
+    estado: {
+        type: Sequelize.STRING,
+    },
+    cep: {
+        type: Sequelize.INTEGER,
     },
     email: {
         type: Sequelize.STRING,

@@ -9,6 +9,10 @@
             class="btn-cadastrar btn btn-secondary"
             style="height: 45px; vertical-align: unset; background-color: #343a40">Novo aluno</button></a>
 </div>
+
+<a style="text-decoration: none; color:#000; font-size: 15px" href="/alunos/mostraralunos"><button
+        class="btn-limpar-filtro btn btn-secondary"
+        style="width: 60px; height: 20px; border: solid 1px black; margin-left: 120px;font-size: 10px; display: flex; align-items: center; justify-content: center;">Limpar</button></a>
 {{#each alunos}}
 
 <div id="alunos">
@@ -18,10 +22,9 @@
             <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
         </div>
         <div class="box-buttons">
-            <a class="btn-info" href="/alunos/editaralunos/"><span>Exibir mais informações</span></a>
+            <a class="btn-info" href="/alunos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
             <a href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img src="/img/delete.png"
                         alt="logo-trash"></button></a>
-
         </div>
 
     </div>

@@ -1,19 +1,19 @@
 .cadastro {
     width: 100%;
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .title-cadastro {
     width: 100%;
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 label {
     display: flex;
     margin-bottom: 10px;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 input {
@@ -41,15 +41,24 @@ input {
     width: 90%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    margin: 60px 60px;
+    margin: 10px 10px;
     row-gap: 10px;
-    column-gap: 60px;
+    column-gap: 30px;
+}
+
+.div-info {
+    border-top: solid 1px black;
+    margin: 25px 90px;
 }
 
 .btn-cadastrar-submit {
     width: 200px;
     height: 50px;
     display: flex;
-    margin-left: 60px;
+    margin-left: 50px;
     justify-content: center;
+}
+
+.title-2 {
+    margin-left: 50px;
 }

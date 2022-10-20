@@ -9,7 +9,7 @@ body {
 }
 
 .logo {
-    width: 800px;
+    width: 550px;
     display: block;
     margin: 0 auto;
     opacity: calc(0.2);
@@ -64,7 +64,7 @@ body {
 #aluno {
     width: 700px;
     height: 45px;
-    margin: 50px 10px 20px 120px;
+    margin: 50px 10px 5px 120px;
     border: solid 1px;
     border-radius:10px;
     padding: 10px;
