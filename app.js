@@ -45,11 +45,10 @@ app.get('/', (req, res) => {
 
 
 // Rota para a tela que exibe os alunos permitindo a busca e cadastro dos mesmos;
-app.get('/alunos/mostraralunos', (req, res) => {
+app.get('/alunos/exibirAlunos', (req, res) => {
 
   let search = req.query.aluno;
   let query = '%' + search + '%'; // PH -> PHP, Word -> Wordpress, press -> Wordpress
-
   if (!search) {
     Aluno.findAll({
       order: [
@@ -58,7 +57,7 @@ app.get('/alunos/mostraralunos', (req, res) => {
     })
       .then(alunos => {
 
-        res.render('mostraralunos', {
+        res.render('exibirAlunos', {
           alunos
         });
 
@@ -72,7 +71,7 @@ app.get('/alunos/mostraralunos', (req, res) => {
       ]
     })
       .then(alunos => {
-        res.render('mostraralunos', {
+        res.render('exibirAlunos', {
           alunos, search
         });
 
@@ -94,5 +93,3 @@ app.get('/removeraluno/:id', function (req, res) {
 
 // Rota alunos;
 app.use('/alunos', require('./routes/alunos'));
-
-

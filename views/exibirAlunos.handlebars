@@ -1,20 +1,18 @@
 <!-- Pesquisar e Adicionar alunos -->
 <div class="box-container">
-    <form id="pesquisa" action="/alunos/mostraralunos" method="GET">
+    <form id="pesquisa" action="/alunos/exibirAlunos" method="GET">
         <input type="text" id="aluno" name="aluno" placeholder="Digite o nome do aluno">
         <button type="submit" class="btn-cadastrar btn btn-secondary"
-            style="height: 45px; vertical-align: unset; background-color: #343a40">Buscar aluno</button>
+            style="height: 45px; vertical-align: unset; background-color: #343a40">Pesquisar</button>
     </form>
-    <a style="text-decoration: none; color:#fff;" href="/alunos/adicionaralunos"><button
+    <a style="text-decoration: none; color:#fff;" href="/alunos/cadastrarAluno"><button
             class="btn-cadastrar btn btn-secondary"
             style="height: 45px; vertical-align: unset; background-color: #343a40">Novo aluno</button></a>
 </div>
 
-<a style="text-decoration: none; color:#000; font-size: 15px" href="/alunos/mostraralunos"><button
-        class="btn-limpar-filtro btn btn-secondary"
-        style="width: 60px; height: 20px; border: solid 1px black; margin-left: 120px;font-size: 10px; display: flex; align-items: center; justify-content: center;">Limpar</button></a>
-{{#each alunos}}
+<a class="btn-limpar-filtro" href="/alunos/exibirAlunos">Limpar</a>
 
+{{#each alunos}}
 <div id="alunos">
     <div class="box-aluno">
         <div class="box-aluno-left">
@@ -31,4 +29,14 @@
 </div>
 {{/each}}
 
+{{#unless alunos}}
+<div class="container">
+    <!-- Página do modal -->
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <h3>Nenhum resultado encontrado!</h3>
+            <a style="text-decoration: none;" href="/alunos/exibirAlunos"><button class="close-btn">Ok</button></a>
+        </div>
+    </div>
 </div>
+{{/unless}}

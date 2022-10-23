@@ -2,26 +2,34 @@ const express = require('express');
 const router = express.Router();
 const Aluno = require('../models/Aluno')
 
-router.get('/mostraralunos', (req, res) => {
-    res.render('mostraralunos');
+router.get('/exibirAlunos', (req, res) => {
+    res.render('exibirAlunos');
 });
 
-router.get('/adicionaralunos', (req, res) => {
-    res.render('adicionaralunos');
+router.get('/cadastrarAluno', (req, res) => {
+    res.render('cadastrarAluno');
 });
 
 router.get('/msg-exclusao', (req, res) => {
     res.render('msg-exclusao');
 });
 
+router.get('/msg-cadastro', (req, res) => {
+    res.render('msg-cadastro');
+});
+
+router.get('/edit/msg-edicao', (req, res) => {
+    res.render('msg-edicao');
+})
+
 // Rota de editar informações do aluno
 router.get('/edit/:id', (req, res) => {
     Aluno.findAll({
         where: { id: req.params.id }
     }).then((alunos) => {
-        res.render("editaralunos", { alunos: alunos })
+        res.render("editarAluno", { alunos: alunos })
     }).catch((err) => {
-        res.redirect("mostraralunos")
+        res.redirect("exibirAlunos")
     })
 })
 router.post("/edit/:id", (req, res) => {
@@ -44,13 +52,13 @@ router.post("/edit/:id", (req, res) => {
         alunos.telefone = req.body.telefone
 
         alunos.save().then(() => {
-            res.redirect("/")
+            res.redirect("msg-edicao")
         }).catch((err) => {
-            res.redirect("/alunos/mostraralunos")
+            res.redirect("/alunos/exibirAlunos")
         })
 
     }).catch((err) => {
-        res.redirect("/alunos/mostraralunos")
+        res.redirect("/alunos/exibirAlunos")
     })
 })
 // Fim da rota de editar aluno
@@ -76,7 +84,7 @@ router.post('/add', (req, res) => {
         email,
         telefone,
     })
-        .then(() => res.redirect('mostraralunos'))
+        .then(() => res.redirect('msg-cadastro'))
         .catch(err => console.log(err));
 
 });

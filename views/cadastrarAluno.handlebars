@@ -1,0 +1,141 @@
+<!-- CADASTRO -->
+<script>
+    function mascaraCPF() {
+        var cpf = document.getElementById('cpf')
+        if (cpf.value.length == 3 || cpf.value.length == 7) {
+
+            cpf.value += "."
+        }
+
+        if (cpf.value.length == 11) {
+            cpf.value += "-"
+        }
+    }
+
+    function mascaraTelefone() {
+        var tel = document.getElementById('telefone')
+        if (tel.value.length == 0) {
+            tel.value += "("
+        }
+        if (tel.value.length == 3) {
+            tel.value += ")"
+        }
+        if (tel.value.length == 4) {
+            tel.value += " "
+        }
+        if (tel.value.length == 10) {
+            tel.value += "-"
+        }
+    }
+
+    function mascaraCEP() {
+        var cep = document.getElementById('cep')
+        if (cep.value.length == 5) {
+            cep.value += "-"
+        }
+    }
+    function maiusculo(e) {
+        var ss = e.target.selectionStart;
+        var se = e.target.selectionEnd;
+        e.target.value = e.target.value.toUpperCase();
+        e.target.selectionStart = ss;
+        e.target.selectionEnd = se;
+    }
+
+</script>
+<div class="cadastro">
+    <form action="/alunos/add" method="post">
+        <h1 class="title-cadastro">Cadastrar aluno</h1>
+        <h2 class="title-2">Informações:</h2>
+        <div class="div-info">
+            <div class="grid-info">
+                <p class="nome-completo">
+                    <label class="nome-label" for="nome_cad">Nome completo:*</label>
+                    <input class="nome-input" id="nome" name="nome" required type="text" value="{{dataValues.nome}}" />
+                </p>
+                <p class="cpf-aluno">
+                    <label class="cpf-aluno" for="cpf">CPF:*</label>
+                    <input class="nome-input" id="cpf" name="cpf" required type="text" value="{{dataValues.cpf}}"
+                        minlength="14" maxlength="14" autocomplete="off"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" onkeyup="mascaraCPF()" />
+                </p>
+
+                <p class="data-nascimento">
+                    <label class="data-aluno" for="nome_cad">Nascimento:*</label>
+                    <input class="nome-input" id="nascimento" name="nascimento" required type="date"
+                        value="{{dataValues.nascimento}}" />
+                </p>
+
+                <p class="matricula">
+                    <label class="nome-label" for="nome_cad">Nº Matrícula:*</label>
+                    <input class="nome-input" id="matricula" name="matricula" required type="number"
+                        value="{{dataValues.matricula}}"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" maxlength="10" minlength="10"
+                        autocomplete="off" />
+                </p>
+
+                <p>
+                    <label for="email">E-mail:*</label>
+                    <input id="email" name="email" required type="email" value="{{dataValues.email}}"
+                        autocomplete="off" />
+                </p>
+
+                <p>
+                    <label for="telefone">Telefone:*</label>
+                    <input id="telefone" name="telefone" required type="text" value="{{dataValues.telefone}}"
+                        placeholder="1234" minlength="15" maxlength="15"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" onfocus="mascaraTelefone()"
+                        onkeyup="mascaraTelefone()" autocomplete="off" />
+                </p>
+            </div>
+        </div>
+
+        <h2 class="title-2">Endereço:</h2>
+
+        <div class="div-info">
+            <div class="grid-info">
+                <p class="rua">
+                    <label class="rua-aluno" for="rua_cad">Rua:*</label>
+                    <input class="cad-input" id="rua" name="rua" required type="text" value="{{dataValues.rua}}"
+                        autocomplete="off" />
+                </p>
+
+                <p class="bairro">
+                    <label class="bairro-aluno" for="rua_cad">Bairro:*</label>
+                    <input class="cad-input" id="bairro" name="bairro" required type="text"
+                        value="{{dataValues.bairro}}" autocomplete="off" />
+                </p>
+
+                <p class="numero">
+                    <label class="numero-aluno" for="numero_cad">Número:*</label>
+                    <input class="nome-input" id="numero" name="numero" required type="text"
+                        value="{{dataValues.numero}}" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        autocomplete="off" />
+                </p>
+
+                <p class="cidade">
+                    <label class="cidade-aluno" for="cidade_cad">Cidade:*</label>
+                    <input class="nome-input" id="cidade" name="cidade" required type="text"
+                        value="{{dataValues.cidade}}" autocomplete="off" />
+                </p>
+
+                <p class="estado">
+                    <label class="estado-aluno" for="nome_cad">UF:*</label>
+                    <input class="nome-input" id="estado" name="estado" required type="text"
+                        value="{{dataValues.estado}}" autocomplete="off" oninput="maiusculo(event)" maxlength="2"
+                        minlength="2" />
+                </p>
+
+                <p class="cep">
+                    <label class="cep-aluno" for="cep_cad">CEP:*</label>
+                    <input class="nome-input" id="cep" name="cep" required type="text" value="{{dataValues.cep}}"
+                        onkeyup="mascaraCEP()" minlength="9" maxlength="9"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="no" />
+                </p>
+            </div>
+        </div>
+
+        <input class="btn btn-secondary btn-cadastrar-submit" style="background-color: #343a40;" type="submit"
+            value="Salvar" />
+    </form>
+</div>

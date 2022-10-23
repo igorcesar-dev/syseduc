@@ -57,8 +57,16 @@ input {
     display: flex;
     margin-left: 50px;
     justify-content: center;
+    margin-bottom: 50px;
 }
 
 .title-2 {
     margin-left: 50px;
+}
+
+input:invalid{
+    border-color: rgb(206, 1, 1);
+}
+input:valid{
+    border-color: rgb(9, 170, 9);
 }
