@@ -174,10 +174,6 @@ body {
     margin-top: 5px;
 }
 
-.btn-class {
-
-}
-
 /* Visibilidade do modal */
 .open-modal {
     visibility: visible;
@@ -210,3 +206,6 @@ body {
     color: aliceblue;
 }
 
+.obrigatorio2 {
+    margin-left: 55px;
+}

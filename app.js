@@ -48,7 +48,8 @@ app.get('/', (req, res) => {
 app.get('/alunos/exibirAlunos', (req, res) => {
 
   let search = req.query.aluno;
-  let query = '%' + search + '%'; // PH -> PHP, Word -> Wordpress, press -> Wordpress
+/*   let search = qAluno.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
+ */  let query = '%' + search + '%'; // PH -> PHP, Word -> Wordpress, press -> Wordpress
   if (!search) {
     Aluno.findAll({
       order: [
