@@ -20,21 +20,25 @@ body {
 }
 
 /* EXIBIR ALUNOS */
+
 .box-aluno {
-    width: 600px;
-    margin-top: 2em;
+    width: 100%;
+    margin-top: 1em;
+    margin-bottom: 1em;
     border: solid 0.1em;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.box-aluno-left {
-    width: 90%;
+.box-aluno-inline {
+    width: 100%;
+    height: 45px;
+    display: flex;
 }
 
 #alunos {
-    width: 50%;
+    width: 90%;
     display: block;
-    margin-left: 120px;
+    margin: 0 auto;
 }
 
 #pesquisa {
@@ -43,21 +47,26 @@ body {
 }
 
 .matricula-aluno {
-    width: 100%;
-    height: 40px;
-    font-size: 20px;
+    width: 40%;
+    font-size: 16px;
     display: flex;
+    justify-content: left;
     align-items: center;
-    margin-left: 10px;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    margin-left: 20px;
 }
 
 .nome-aluno {
     width: 100%;
-    height: 40px;
-    font-size: 20px;
+    font-size: 16px;
     display: flex;
+    justify-content: left;
     align-items: center;
-    margin-left: 10px;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    margin-left: 20px;
+
 }
 
 /* Barra de pesquisa */
@@ -66,24 +75,25 @@ body {
     height: 45px;
     margin: 50px 10px 5px 120px;
     border: solid 1px;
-    border-radius:10px;
+    border-radius:5px;
     padding: 10px;
     font-size: 20px;
 }
 
 .box-buttons {
-    width: 100%;
+    width:50%;
     display: flex;
     align-items: center;
+    margin-right: 20px;
 }
 
 .btn-info {
     width: 100%;
-    height: 60px;
+    height: 35px;
     display: inline-block;
     margin: 10px 10px;
     border: solid 0.1px;
-    border-radius: 10px;
+    border-radius: 5px;
     background-color: #343a40;
     text-decoration: none;
     color: #fff;   
@@ -97,23 +107,22 @@ body {
     height: 100%;
     display: grid;
     place-items: center;
-    font-size: 15px;
-    border-radius: 10px;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
-
 .btn-excluir img {
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
 }
 
 .btn-excluir {
-    height: 60px;
+    width: 100%;
+    height: 35px;
     border: solid 0.1px;
-    border-radius: 10px;
+    border-radius: 5px;
     margin-right: 10px;
     cursor: pointer;
-    background-color: #343a40;
 }
 
 
@@ -196,6 +205,7 @@ body {
     border-radius: 5px;
     text-decoration: none; 
     margin-left: 120px;
+    margin-bottom: 30px;
     font-size: 10px; 
     align-items: center; 
     justify-content: center;
@@ -208,4 +218,135 @@ body {
 
 .obrigatorio2 {
     margin-left: 55px;
+}
+
+.logo-footer {
+    width: 30px;
+    margin-left: 10px;
+}
+
+.cadastro {
+    width: 100%;
+    margin-top: 40px;
+}
+
+.title-cadastro {
+    width: 100%;
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+label {
+    display: flex;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+    width: 100%;
+    font-size: 20px;
+}
+
+.tipo-aluno {
+    display: flex;
+    margin: 0px;
+}
+
+.div-tipo {
+    display: flex;
+    margin-top: 10px;
+}
+
+.input-tipo {
+    width: 30px;
+    margin-left: 20px;
+}
+
+.grid-info {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin: 10px 10px;
+    row-gap: 10px;
+    column-gap: 30px;
+}
+
+.div-info {
+    border-top: solid 1px black;
+    margin: 25px 90px;
+}
+
+.btn-cadastrar-submit {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    margin-left: 50px;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.title-2 {
+    margin-left: 50px;
+}
+
+input:invalid{
+    border-color: rgb(206, 1, 1);
+}
+input:valid{
+    border-color: rgb(9, 170, 9);
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #212529;
+    color: #ffffff;
+    box-sizing: border-box;
+    margin-top: 100px;
+}
+
+.tabela {
+    display: grid;
+    border-radius: 5px;
+    place-items: center ;
+}
+
+table {
+    width: 90%;
+    background-color:#404448;
+    text-align: left;
+    color: #fff;
+    border-radius: 5px;
+
+}
+
+.t-matricula {
+    width: 21%;
+    border-right: solid 1px black;
+}
+
+.t-nome {
+    width: 50%;
+    border-right: solid 1px black;
+    margin-left: 10px;
+}
+
+.t-info {
+    width: 26%;
+    margin-left: 10px;
+    border-left: 5px;
+}
+
+th {
+    padding-left: 20px;   
+}
+
+.obrigatorio{
+    color: red;
+  
 }

@@ -8,6 +8,9 @@ const Aluno = db.define('aluno', {
     nome: {
         type: Sequelize.STRING,
     },
+    tipo: {
+        type: Sequelize.STRING,
+    },
     cpf: {
         type: Sequelize.INTEGER,
     },

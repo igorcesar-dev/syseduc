@@ -38,6 +38,7 @@ router.post("/edit/:id", (req, res) => {
     }).then((alunos) => {
 
         alunos.nome = req.body.nome
+        alunos.tipo = req.body.tipo
         alunos.matricula = req.body.matricula
         alunos.cpf = req.body.cpf
         alunos.nascimento = req.body.nascimento
@@ -66,12 +67,13 @@ router.post("/edit/:id", (req, res) => {
 
 // ADD ALUNO VIA POST
 router.post('/add', (req, res) => {
-    let { matricula, nome, cpf, nascimento, responsavel, rua, bairro, numero, cidade, estado, cep, email, telefone } = req.body;
+    let { matricula, nome, tipo, cpf, nascimento, responsavel, rua, bairro, numero, cidade, estado, cep, email, telefone } = req.body;
 
     // INSERT
     Aluno.create({
         matricula,
         nome,
+        tipo,
         cpf,
         nascimento,
         responsavel,

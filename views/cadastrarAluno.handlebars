@@ -1,6 +1,48 @@
 <!-- CADASTRO -->
 <script>
 
+
+    function mascaraCPF() {
+        var cpf = document.getElementById('cpf')
+        if (cpf.value.length == 3 || cpf.value.length == 7) {
+
+            cpf.value += "."
+        }
+
+        if (cpf.value.length == 11) {
+            cpf.value += "-"
+        }
+    }
+
+    function mascaraTelefone() {
+        var tel = document.getElementById('telefone')
+        if (tel.value.length == 0) {
+            tel.value += "("
+        }
+        if (tel.value.length == 3) {
+            tel.value += ")"
+        }
+        if (tel.value.length == 4) {
+            tel.value += " "
+        }
+        if (tel.value.length == 10) {
+            tel.value += "-"
+        }
+    }
+
+    function mascaraCEP() {
+        var cep = document.getElementById('cep')
+        if (cep.value.length == 5) {
+            cep.value += "-"
+        }
+    }
+    function maiusculo(e) {
+        var ss = e.target.selectionStart;
+        var se = e.target.selectionEnd;
+        e.target.value = e.target.value.toUpperCase();
+        e.target.selectionStart = ss;
+        e.target.selectionEnd = se;
+    }
     function _cpf(cpf) {
         cpf = cpf.replace(/[^\d]+/g, '');
         if (cpf == '') return false;
@@ -42,43 +84,12 @@
             alert("Cpf inválido!")
         }
     }
-
-    function mascaraTelefone() {
-        var tel = document.getElementById('telefone')
-        if (tel.value.length == 0) {
-            tel.value += "("
-        }
-        if (tel.value.length == 3) {
-            tel.value += ")"
-        }
-        if (tel.value.length == 4) {
-            tel.value += " "
-        }
-        if (tel.value.length == 10) {
-            tel.value += "-"
-        }
-    }
-
-    function mascaraCEP() {
-        var cep = document.getElementById('cep')
-        if (cep.value.length == 5) {
-            cep.value += "-"
-        }
-    }
-    function maiusculo(e) {
-        var ss = e.target.selectionStart;
-        var se = e.target.selectionEnd;
-        e.target.value = e.target.value.toUpperCase();
-        e.target.selectionStart = ss;
-        e.target.selectionEnd = se;
-    }
-
 </script>
 <div class="cadastro">
     <form action="/alunos/add" method="post">
         <h1 class="title-cadastro">Cadastrar aluno</h1>
-        <h2 class="title-2">Informações:</h2>
-        <small class="obrigatorio2">(*) Campos obrigatórios</small>
+        <h2 class="title-2">Dados pessoais:</h2>
+        <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
         <div class="div-info">
             <div class="grid-info">
 
@@ -87,27 +98,45 @@
                     <label class="nome-label" for="nome_cad">Nome completo: <small class="obrigatorio">
                             *</small></label>
                     <input class="nome-input" id="nome" name="nome"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text" />
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text" autocomplete="off" />
                 </p>
 
-                {{!-- Cpf --}}
+                {{!-- Tipo do aluno --}}
+
+                <div>
+                    <label class="tipo-aluno" for="tipo-aluno">Tipo do aluno: <small class="obrigatorio"> *</small></label>
+                    <div class="div-tipo">
+                        <select name="tipo" id="tipo" required>
+                            <option value="">Escolha um opçao:</option>
+                            <option value="mensalista">Mensalista</option>
+                            <option value="vip">Vip</option>
+                            <option value="flex">Flex</option>
+                        </select>
+                    </div>
+                </div>
+
+                 {{!-- Cpf --}}
                 <p class="cpf-aluno">
                     <label class="cpf-aluno" for="cpf">CPF:<small class="obrigatorio"> *</small></label>
-                    <input class="cpf-input" id="cpf" name="cpf" required type="text" onkeyup=""
+                    <input class="cpf-input" id="cpf" name="cpf" required type="text" value="{{dataValues.cpf}}"
+                        minlength="14" maxlength="14" autocomplete="off"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" onkeyup="mascaraCPF()"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')"
                         onblur="validarCPF(this)" />
                 </p>
 
                 {{!-- Data nascimento --}}
                 <p class="data-nascimento">
-                    <label class="data-aluno" for="nome_cad">Nascimento:<small class="obrigatorio"> *</small></label>
+                    <label class="data-aluno" for="nome_cad">Nascimento:<small class="obrigatorio">
+                            *</small></label>
                     <input class="nome-input" id="nascimento" name="nascimento"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="date" />
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="date" autocomplete="off"/>
                 </p>
 
                 {{!-- Matricula --}}
                 <p class="matricula">
-                    <label class="nome-label" for="nome_cad">Nº Matrícula:<small class="obrigatorio"> *</small></label>
+                    <label class="nome-label" for="nome_cad">Nº Matrícula:<small class="obrigatorio">
+                            *</small></label>
                     <input class="nome-input" id="matricula" name="matricula"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
                         onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="off"
@@ -132,6 +161,13 @@
                         onkeypress="return event.charCode >= 48 && event.charCode <= 57" onfocus="mascaraTelefone()"
                         onkeyup="mascaraTelefone()" autocomplete="off" oninput="setCustomValidity('')" />
                 </p>
+
+                {{!-- Responsável --}}
+                <p>
+                    <label for="responsavel">Responsável:<small class="obrigatorio"> *</small></label>
+                    <input id="responsavel" name="responsavel"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" type="text" value="PRECISA DO MÓDULO RESPONSÁVEL" style="background-color: red; "/>
+                </p>
             </div>
         </div>
 
@@ -154,14 +190,16 @@
                 </p>
 
                 <p class="numero">
-                    <label class="numero-aluno" for="numero_cad">Número:<small class="obrigatorio"> *</small></label>
+                    <label class="numero-aluno" for="numero_cad">Número:<small class="obrigatorio">
+                            *</small></label>
                     <input class="nome-input" id="numero" name="numero"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
                         onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="off" />
                 </p>
 
                 <p class="cidade">
-                    <label class="cidade-aluno" for="cidade_cad">Cidade:<small class="obrigatorio"> *</small></label>
+                    <label class="cidade-aluno" for="cidade_cad">Cidade:<small class="obrigatorio">
+                            *</small></label>
                     <input class="nome-input" id="cidade" name="cidade"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
                         autocomplete="off" />
@@ -179,10 +217,64 @@
                     <input class="nome-input" id="cep" name="cep"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
                         onkeyup="mascaraCEP()" minlength="9" maxlength="9"
-                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="no"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="off"
                         oninput="setCustomValidity('')" />
                 </p>
             </div>
+        </div>
+        
+        <h2 class="title-2">Curso: (EM BREVE...)</h2>
+
+        <div class="div-info">
+            <div class="grid-info">
+{{!-- 
+                <p class="rua">
+                    <label class="rua-aluno" for="rua_cad">Rua:<small class="obrigatorio"> *</small></label>
+                    <input class="cad-input" id="rua" name="rua"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.rua}}" autocomplete="off" />
+                </p>
+
+                <p class="bairro">
+                    <label class="bairro-aluno" for="rua_cad">Bairro:<small class="obrigatorio"> *</small></label>
+                    <input class="cad-input" id="bairro" name="bairro"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.bairro}}" autocomplete="off" />
+                </p>
+
+                <p class="numero">
+                    <label class="numero-aluno" for="numero_cad">Número:<small class="obrigatorio"> *</small></label>
+                    <input class="nome-input" id="numero" name="numero"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.numero}}" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
+                        autocomplete="off" />
+                </p>
+
+                <p class="cidade">
+                    <label class="cidade-aluno" for="cidade_cad">Cidade:<small class="obrigatorio"> *</small></label>
+                    <input class="nome-input" id="cidade" name="cidade"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.cidade}}" autocomplete="off" />
+                </p>
+
+                <p class="estado">
+                    <label class="estado-aluno" for="nome_cad">UF:<small class="obrigatorio"> *</small></label>
+                    <input class="nome-input" id="estado" name="estado"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.estado}}" autocomplete="off" oninput="maiusculo(event)" maxlength="2"
+                        minlength="2" />
+                </p>
+
+                <p class="cep">
+                    <label class="cep-aluno" for="cep_cad">CEP:<small class="obrigatorio"> *</small></label>
+                    <input class="nome-input" id="cep" name="cep"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.cep}}" onkeyup="mascaraCEP()" minlength="9" maxlength="9"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="no"
+                        oninput="setCustomValidity('')" />
+                </p> --}}
+            </div>
+
         </div>
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #343a40;"

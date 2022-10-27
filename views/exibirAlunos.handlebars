@@ -1,7 +1,7 @@
 <!-- Pesquisar e Adicionar alunos -->
 <div class="box-container">
     <form id="pesquisa" action="/alunos/exibirAlunos" method="GET">
-        <input type="text" id="aluno" name="aluno" placeholder="Digite o nome do aluno">
+        <input type="text" id="aluno" name="aluno" placeholder="Digite o nome do aluno" autocomplete="off">
         <button type="submit" class="btn-cadastrar btn btn-secondary"
             style="height: 45px; vertical-align: unset; background-color: #343a40">Pesquisar</button>
     </form>
@@ -12,19 +12,26 @@
 
 <a class="btn-limpar-filtro" href="/alunos/exibirAlunos">Limpar</a>
 
+<div class="tabela">
+    <table>
+        <th class="t-matricula">Matricula</th>
+        <th class="t-nome">Nome completo</th>
+        <th class="t-info">Informações</th>
+    </table>
+</div>
+
 {{#each alunos}}
 <div id="alunos">
     <div class="box-aluno">
-        <div class="box-aluno-left">
+        <div class="box-aluno-inline">
             <h1 class="matricula-aluno"> Matricula: {{dataValues.matricula}}</h1>
             <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
+            <div class="box-buttons">
+                <a class="btn-info" href="/alunos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
+                <a href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img src="/img/delete.png"
+                            alt="logo-trash"></button></a>
+            </div>
         </div>
-        <div class="box-buttons">
-            <a class="btn-info" href="/alunos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
-            <a href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img src="/img/delete.png"
-                        alt="logo-trash"></button></a>
-        </div>
-
     </div>
 </div>
 {{/each}}
