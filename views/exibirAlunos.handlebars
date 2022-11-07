@@ -7,7 +7,7 @@
     </form>
     <a style="text-decoration: none; color:#fff;" href="/alunos/cadastrarAluno"><button
             class="btn-cadastrar btn btn-secondary"
-            style="height: 45px; vertical-align: unset; background-color: #343a40">Novo aluno</button></a>
+            style="height: 45px; vertical-align: unset; background-color: #0c7c59">Novo aluno</button></a>
 </div>
 
 <a class="btn-limpar-filtro" href="/alunos/exibirAlunos">Limpar</a>
@@ -28,7 +28,7 @@
             <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
             <div class="box-buttons">
                 <a class="btn-info" href="/alunos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
-                <a href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img src="/img/delete.png"
+                <a class="link-btn" href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img src="/img/delete.png"
                             alt="logo-trash"></button></a>
             </div>
         </div>

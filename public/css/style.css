@@ -1,3 +1,16 @@
+:root {
+
+    /* Colors */
+    --viridian: #0c7c59;
+    --gunmetal: #2b303a;
+    --cinnabar: #d64933;
+    --cadetblue: #58a4b0;
+    --padrao: #343a40;
+    --hover: #b1b1b1;
+    --hover-dark: #2b3034;
+    --hover-white: #454d55;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -17,6 +30,18 @@ body {
 
 .logo-nav {
     width: 60px;
+}
+
+#menu-adm {
+    background-color: var(--gunmetal);
+}
+
+#menu-adm li a {
+    color: #fff;
+}
+
+#menu-adm li a:hover {
+    background-color: var(--hover-white);
 }
 
 /* EXIBIR ALUNOS */
@@ -73,7 +98,7 @@ body {
 #aluno {
     width: 700px;
     height: 45px;
-    margin: 50px 10px 5px 120px;
+    margin: 50px 10px 5px 100px;
     border: solid 1px;
     border-radius:5px;
     padding: 10px;
@@ -94,13 +119,13 @@ body {
     margin: 10px 10px;
     border: solid 0.1px;
     border-radius: 5px;
-    background-color: #343a40;
+    background-color: var(--gunmetal);
     text-decoration: none;
     color: #fff;   
 }
 
 .btn-info:hover {
-    color: rgb(177, 177, 177);
+    color: var(--hover);
 }
 
 .btn-info span {
@@ -119,10 +144,16 @@ body {
 .btn-excluir {
     width: 100%;
     height: 35px;
-    border: solid 0.1px;
-    border-radius: 5px;
     margin-right: 10px;
+    margin-bottom: 5px;
+    border: none;
     cursor: pointer;
+    background-color: #fff;
+
+}
+
+.link-btn {
+    background-color: none;
 }
 
 
@@ -162,7 +193,7 @@ body {
     display: flex;
     text-align: center;
     justify-content: center;
-    background-color: white;
+    background-color: #fff;
     border-radius: 1rem;
 }
 
@@ -198,22 +229,22 @@ body {
 .btn-limpar-filtro {
     display: flex;
     width: 60px; 
-    height: 20px;
-    background-color: #343a40;
-    color:#ffffff; 
+    height: 25px;
+    background-color: var(--cinnabar);
+    color:#fff; 
     border: solid 1px black; 
     border-radius: 5px;
     text-decoration: none; 
-    margin-left: 120px;
-    margin-bottom: 30px;
-    font-size: 10px; 
+    margin-left: 100px;
+    margin-bottom: 50px;
+    font-size: 12px; 
     align-items: center; 
     justify-content: center;
 }
 
 .btn-limpar-filtro:hover {
     text-decoration: none;
-    color: aliceblue;
+    color: var(--hover);
 }
 
 .obrigatorio2 {
@@ -304,7 +335,7 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #212529;
+    background-color: var(--gunmetal);
     color: #ffffff;
     box-sizing: border-box;
     margin-top: 100px;
@@ -318,11 +349,12 @@ footer {
 
 table {
     width: 90%;
-    background-color:#404448;
+    height: 40px;
+    background-color:var(--gunmetal);
     text-align: left;
     color: #fff;
     border-radius: 5px;
-
+    font-size: 18px;
 }
 
 .t-matricula {
@@ -348,5 +380,4 @@ th {
 
 .obrigatorio{
     color: red;
-  
 }
