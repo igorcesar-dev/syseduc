@@ -1,0 +1,50 @@
+<!-- Pesquisar e Adicionar alunos -->
+<div class="box-container">
+    <form id="pesquisa" action="/educadores/exibirEducadores" method="GET">
+        <input class="barra-de-pesquisa" type="text" id="educador" name="educador" placeholder="Digite o nome do educador" autocomplete="off">
+        <button type="submit" class="btn-cadastrar btn btn-secondary"
+            style="height: 45px; vertical-align: unset; background-color: #343a40">Pesquisar</button>
+    </form>
+    <a style="text-decoration: none; color:#fff;" href="/educadores/cadastrarEducador"><button
+            class="btn-cadastrar btn btn-secondary"
+            style="height: 45px; vertical-align: unset; background-color: #0c7c59">Novo Educador</button></a>
+</div>
+
+<a class="btn-limpar-filtro" href="/educadores/exibirEducadores">Limpar</a>
+
+<div class="tabela">
+    <table>
+        <th class="t-matricula">Código</th>
+        <th class="t-nome">Nome completo</th>
+        <th class="t-info">Informações</th>
+    </table>
+</div>
+
+{{#each educadores}}
+<div id="alunos">
+    <div class="box-aluno">
+        <div class="box-aluno-inline">
+            <h1 class="matricula-aluno"> Código: {{dataValues.id}}</h1>
+            <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
+            <div class="box-buttons">
+                <a class="btn-info" href="/educadores/editeducador/{{dataValues.id}}"><span>Exibir mais informações</span></a>
+                <a class="link-btn" href="/removereducador/{{dataValues.id}}"><button class="btn-excluir"><img
+                            src="/img/delete.png" alt="logo-trash"></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+
+{{!-- {{#unless educadores}}
+<div class="container">
+    <!-- Página do modal -->
+    <div class="modal-overlay">
+        <div class="modal-container">
+            <h3>Nenhum resultado encontrado!</h3>
+            <a style="text-decoration: none;" href="/educadores/exibirEducadores"><button
+                    class="close-btn">Ok</button></a>
+        </div>
+    </div>
+</div>
+{{/unless}} --}}

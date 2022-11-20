@@ -95,7 +95,7 @@ body {
 }
 
 /* Barra de pesquisa */
-#aluno {
+.barra-de-pesquisa {
     width: 700px;
     height: 45px;
     margin: 50px 10px 5px 100px;
