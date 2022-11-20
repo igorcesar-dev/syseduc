@@ -4,7 +4,6 @@ const Aluno = require('../models/Aluno');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
-
 router.get('/cadastrarAluno', (req, res) => {
   res.render('admin/aluno/cadastrarAluno');
 });

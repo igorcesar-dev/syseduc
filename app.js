@@ -8,8 +8,11 @@ const Aluno = require('./models/Aluno');
 const Educador = require('./models/Educador');
 const Sequelize = require('sequelize');
 const PORT = 3000;
+
+
 const routerAlunos = require("./routes/alunos");
 const routerEducadores = require("./routes/educadores");
+const routerCursos = require("./routes/cursos");
 
 /* Verifica se o express está funcionando */
 app.listen(PORT, function () {
@@ -39,7 +42,7 @@ db
 
 app.use("/", routerAlunos);
 app.use("/", routerEducadores);
-
+app.use("/", routerCursos);
 
 // ROTAS 
 
@@ -52,4 +55,7 @@ app.use('/alunos', require('./routes/alunos'));
 
 // Rota educadores;
 app.use('/educadores', require('./routes/educadores'));
+
+// Rota cursos;
+app.use('/cursos', require('./routes/cursos'));
 

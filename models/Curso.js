@@ -14,6 +14,7 @@ const Curso = db.define('curso', {
     cargaHoraria: {
         type: Sequelize.STRING,
     }
+    
 });
 
 module.exports = Curso;
