@@ -1,2 +1,2 @@
 # syseduc
- Sistema para controle de avaliações de alunos
+ Sistema para controle de alunos
