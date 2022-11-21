@@ -6,6 +6,7 @@ const db = require('./db/connection');
 const bodyParser = require('body-parser');
 const Aluno = require('./models/Aluno');
 const Educador = require('./models/Educador');
+const Curso = require('./models/Curso');
 const Sequelize = require('sequelize');
 const PORT = 3000;
 

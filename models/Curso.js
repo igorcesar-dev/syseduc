@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const db = require("../db/connection");
 
-const Curso = db.define('curso', {
+const Curso = db.define('cursos', {
     codCurso: {
         type: Sequelize.INTEGER,
     },

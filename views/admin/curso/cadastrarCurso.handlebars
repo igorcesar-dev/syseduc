@@ -1,0 +1,58 @@
+<!-- CADASTRO -->
+
+<div class="cadastro">
+    <form action="/cursos/add" method="post">
+        <h1 class="title-cadastro">Cadastrar Curso</h1>
+        <h2 class="title-2">Dados do Curso:</h2>
+        <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
+        <div class="div-info">
+            <div class="grid-info">
+
+                {{!-- Nome --}}
+                <p class="nome-aluno">
+                    <label class="nome-label" for="nome_cad">Nome do Curso: <small class="obrigatorio">
+                            *</small></label>
+                    <input class="nome-input" id="nome" name="nome"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text" autocomplete="off" />
+                </p>
+
+                {{!-- Modulos --}}
+
+                <p class="matricula">
+                    <label class="nome-label" for="nome_cad">Módulos:<small class="obrigatorio">
+                            *</small></label>
+                    <input class="nome-input" id="modulo" name="modulo"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                         />
+                </p>
+
+                {{!-- Disciplinas que o Curso Contêm --}}
+                <p>
+                    <label for="Disciplinas">Disciplinas:<small class="obrigatorio"> *</small></label>
+                    <input id="codDisciplina" name="codDisciplina"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        autocomplete="off" />
+                </p>
+
+
+                {{!-- Carga horária --}}
+                <p>
+                    <label for="Carga horária">C. Horária:<small class="obrigatorio"> *</small></label>
+                    <input id="Cargahorária" name="Carga horária"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        />
+                </p>
+
+                {{!-- Codigo Curso --}}
+                <p>
+                    <label for="CodCurso">Codigo do Curso:<small class="obrigatorio"> *</small></label>
+                    <input id="CodCurso" name="CodCurso"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" type="text" value="CodCurso" />
+                </p>
+            </div>
+                    <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
+            type="submit" value="Salvar" />
+    </form>
+        </div>
+
+    

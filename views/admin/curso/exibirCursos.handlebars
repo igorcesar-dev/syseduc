@@ -1,0 +1,55 @@
+<!-- Pesquisar e Adicionar cursos -->
+<div class="box-container">
+    <form id="pesquisa" action="/cursos/exibirCursos" method="GET">
+        <input class="barra-de-pesquisa" type="text" id="aluno" name="aluno" placeholder="Digite o nome do curso"
+            autocomplete="off">
+        <button type="submit" class="btn-cadastrar btn btn-secondary"
+            style="height: 45px; vertical-align: unset; background-color: #343a40">Pesquisar</button>
+    </form>
+    <a style="text-decoration: none; color:#fff;" href="/cursos/cadastrarCurso"><button
+            class="btn-cadastrar btn btn-secondary"
+            style="height: 45px; vertical-align: unset; background-color: #0c7c59">Novo aluno</button></a>
+</div>
+
+<a class="btn-limpar-filtro" href="/cursos/exibirCursos">Limpar</a>
+
+<div class="tabela">
+    <table>
+        <th class="t-codCurso">Codigo do Curso</th>
+        <th class="t-nome">Nome do Curso</th>
+        <th class="t-info">Informações</th>
+    </table>
+</div>
+
+{{#each cursos}}
+
+<div id="alunos">
+    <div class="box-aluno">
+        <div class="box-aluno-inline">
+            <h1 class="matricula-aluno"> Codigo do Curso: 123</h1>
+            <h1 class="nome-aluno">Nome: {{dataValues.modulo}}</h1>
+            <h1 class="nome-aluno">Nome: {{dataValues.nome}}</h1>
+            <h1 class="nome-aluno">Nome: {{dataValues.codDisciplina}}</h1>
+            <h1 class="nome-aluno">Nome: {{dataValues.cargaHoraria}}</h1>
+            <h1 class="nome-aluno">Nome: {{dataValues.codCurso}}</h1>
+            <div class="box-buttons">
+                <a class="btn-info" href="/cursos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
+                <a class="link-btn" href="/removercurso/{{dataValues.id}}"><button class="btn-excluir"><img
+                            src="/img/delete.png" alt="logo-trash"></button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{{/each}}
+{{!--
+{{#unless cursos}}
+<div class="container"> --}}
+    <!-- Página do modal -->
+    {{!-- <div class="modal-overlay">
+        <div class="modal-container">
+            <h3>Nenhum resultado encontrado!</h3>
+            <a style="text-decoration: none;" href="/cursos/exibirCursos"><button class="close-btn">Ok</button></a>
+        </div>
+    </div>
+</div>
+{{/unless}} --}}
