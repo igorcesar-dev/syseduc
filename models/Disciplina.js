@@ -8,9 +8,6 @@ const Disciplina = db.define('disciplina', {
     nome: {
         type: Sequelize.STRING,
     },
-    educador: {
-        type: Sequelize.STRING,
-    },
     codCurso: {
         type: Sequelize.STRING,
     },
@@ -19,6 +16,9 @@ const Disciplina = db.define('disciplina', {
     },
     semestre: {
         type: Sequelize.INTEGER,
+    },
+    ministrante: {
+        type: Sequelize.STRING,
     }
 });
 

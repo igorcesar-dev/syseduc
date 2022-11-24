@@ -14,6 +14,7 @@ const PORT = 3000;
 const routerAlunos = require("./routes/alunos");
 const routerEducadores = require("./routes/educadores");
 const routerCursos = require("./routes/cursos");
+const routerDisciplinas = require("./routes/disciplinas");
 
 /* Verifica se o express está funcionando */
 app.listen(PORT, function () {
@@ -44,6 +45,7 @@ db
 app.use("/", routerAlunos);
 app.use("/", routerEducadores);
 app.use("/", routerCursos);
+app.use("/", routerDisciplinas);
 
 // ROTAS 
 
@@ -59,4 +61,7 @@ app.use('/educadores', require('./routes/educadores'));
 
 // Rota cursos;
 app.use('/cursos', require('./routes/cursos'));
+
+// Rota disciplinas;
+app.use('/disciplinas', require('./routes/disciplinas'));
 

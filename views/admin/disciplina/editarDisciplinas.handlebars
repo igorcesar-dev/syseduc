@@ -1,0 +1,58 @@
+<!-- EDIÇÃO -->
+{{#each disciplinas}}
+
+<!-- CADASTRO -->
+<div class="cadastro">
+    <form action="/disciplinas/editdisciplinas/{{dataValues.id}}" method="post">
+        <h1 class="title-cadastro">Editar disciplina</h1>
+        <h2 class="title-2">Informações da disciplina:</h2>
+        <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
+        <div class="div-info">
+            <div class="grid-info">
+
+                {{!-- Nome --}}
+                <p class="nome-completo">
+                    <label class="nome-label" for="nome_cad">Nome: <small class="obrigatorio">
+                            *</small></label>
+                    <input class="nome-input" id="nome" name="nome"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        autocomplete="off" value="{{dataValues.nome}}"/>
+                </p>
+
+                {{!-- ministrante --}}
+                <p class="ministrante">
+                    <label class="ministrante" for="ministrante">Ministrante:<small class="obrigatorio">
+                            *</small></label>
+                    <input class="ministrante" id="ministrante" name="ministrante" required type="text" value="{{dataValues.ministrante}}" />
+                </p>
+
+                {{!-- codigo do curso --}}
+                <p class="codCurso">
+                    <label class="codCurso" for="codCurso">Código do curso:<small class="obrigatorio">
+                            *</small></label>
+                    <input class="nome-input" id="codCurso" name="codCurso"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        autocomplete="off" value="{{dataValues.codCurso}}"/>
+                </p>
+
+                {{!-- horario --}}
+                <p class="horario">
+                    <label class="horario" for="horario">Carga Horária:<small class="obrigatorio">
+                            *</small></label>
+                    <input class="horario" id="horario" name="horario" value="{{dataValues.horario}}" />
+                </p>
+
+                {{!-- semestre --}}
+                <p>
+                    <label for="semestre">Semestre:<small class="obrigatorio"> *</small></label>
+                <input id="semestre" name="semestre" type="text" value="{{dataValues.semestre}}" />
+                </p>
+            </div>
+        </div>
+
+        <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
+            type="submit" value="Salvar" />
+    </form>
+</div>
+
+{{/each}}

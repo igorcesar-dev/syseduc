@@ -1,7 +1,8 @@
 <!-- Pesquisar e Adicionar alunos -->
 <div class="box-container">
     <form id="pesquisa" action="/alunos/exibirAlunos" method="GET">
-        <input class="barra-de-pesquisa" type="text" id="aluno" name="aluno" placeholder="Digite o nome do aluno" autocomplete="off">
+        <input class="barra-de-pesquisa" type="text" id="aluno" name="aluno" placeholder="Digite o nome do aluno"
+            autocomplete="off">
         <button type="submit" class="btn-cadastrar btn btn-secondary"
             style="height: 45px; vertical-align: unset; background-color: #343a40">Pesquisar</button>
     </form>
@@ -28,8 +29,8 @@
             <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
             <div class="box-buttons">
                 <a class="btn-info" href="/alunos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
-                <a class="link-btn" href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img src="/img/delete.png"
-                            alt="logo-trash"></button></a>
+                <a class="link-btn" href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img
+                            src="/img/delete.png" alt="logo-trash"></button></a>
             </div>
         </div>
     </div>

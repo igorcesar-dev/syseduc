@@ -1,38 +1,42 @@
-<!-- CADASTRO -->
+<!-- EDIÇÃO -->
+{{#each cursos}}
 
 <div class="cadastro">
-    <form action="/cursos/add" method="post">
-        <h1 class="title-cadastro">Cadastrar Curso</h1>
-        <h2 class="title-2">Dados do Curso:</h2>
+    <form action="/cursos/editcurso/{{dataValues.id}}" method="post">
+        <h1 class="title-cadastro">Informações do aluno:</h1>
+        <h2 class="title-2">Dados pessoais:</h2>
         <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
         <div class="div-info">
             <div class="grid-info">
+
                 {{!-- Codigo Curso --}}
                 <p>
                     <label for="CodCurso">Codigo do Curso:<small class="obrigatorio"> *</small></label>
                     <input id="codCurso" name="codCurso"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')"  required type="text"/>
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.codCurso}}" />
                 </p>
 
                 {{!-- Nome --}}
                 <p class="matricula">
                     <label class="nome-label" for="nome_cad">Nome do Curso: <small class="obrigatorio">*</small></label>
-                    <input class="nome-input" id="nome" name="nome" 
+                    <input class="nome-input" id="nome" name="nome"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        autocomplete="off" />
+                        autocomplete="off" value="{{dataValues.nome}}" />
                 </p>
 
                 {{!-- Modulos --}}
 
                 <p class="matricula">
-                    <label class="nome-label" for="nome_cad">Módulos:<small class="obrigatorio">*</small></label>
+                    <label class="nome-label" for="codCurso">Módulos:<small class="obrigatorio">*</small></label>
                     <input class="nome-input" id="modulo" name="modulo"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text" />
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.modulo}}" />
                 </p>
 
                 {{!-- Disciplinas que o Curso Contêm --}}
                 <p>
-                    <label for="codDisciplina">Disciplinas:<small class="obrigatorio">*</small></label>
+                    <label for="Disciplinas">Disciplinas:<small class="obrigatorio">*</small></label>
                     <input id="codDisciplina" name="codDisciplina"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" type="text"
                         autocomplete="off" placeholder="Nessecita Tabela Disciplina" style="background-color: red ;" />
@@ -43,12 +47,14 @@
                 <p>
                     <label for="cargaHoraria">C. Horária:<small class="obrigatorio"> *</small></label>
                     <input id="cargaHoraria" name="cargaHoraria"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text" />
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
+                        value="{{dataValues.cargaHoraria}}" />
                 </p>
-
-
             </div>
+
             <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
                 type="submit" value="Salvar" />
     </form>
 </div>
+
+{{/each}}

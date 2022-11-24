@@ -44,7 +44,6 @@ router.get('/cursos/exibirCursos', (req, res) => {
       .catch(err => console.log(err));
   }
 });
-
 // Rota de editar informações do aluno
 router.get('/editcurso/:id', (req, res) => {
   Curso.findAll({
