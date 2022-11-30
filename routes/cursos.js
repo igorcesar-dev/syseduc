@@ -1,11 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Curso = require('../models/Curso');
+const Disciplina = require('../models/Disciplina');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 router.get('/cadastrarCurso', (req, res) => {
-  res.render('admin/curso/cadastrarCurso');
+  Disciplina.findAll({
+    order: [
+      ['createdAt', 'DESC']
+    ]
+  })
+    .then(disciplinas => {
+      res.render('admin/curso/cadastrarCurso', {
+        disciplinas
+      });
+    })
 });
 
 /* EXIBIÇÃO, BUSCA (Cursos); */
@@ -49,7 +59,14 @@ router.get('/editcurso/:id', (req, res) => {
   Curso.findAll({
     where: { id: req.params.id }
   }).then((cursos) => {
-    res.render("admin/curso/editarCurso", { cursos: cursos })
+    Disciplina.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
+      .then(disciplinas => {
+        res.render("admin/curso/editarCurso", { cursos: cursos, disciplinas: disciplinas })
+      })
   }).catch((err) => {
     res.render("admin/curso/exibirCurso")
   })
@@ -63,6 +80,7 @@ router.post("/editcurso/:id", (req, res) => {
     cursos.nome = req.body.nome
     cursos.modulo = req.body.modulo
     cursos.cargaHoraria = req.body.cargaHoraria
+    cursos.disciplinasCadastradas = req.body.disciplinasCadastradas
 
     cursos.save().then(() => {
       res.render("admin/curso/msg-edicao")
@@ -79,7 +97,7 @@ router.post("/editcurso/:id", (req, res) => {
 
 // ADD ALUNO VIA POST
 router.post('/add', (req, res) => {
-  let { codCurso, nome, modulo, cargaHoraria } = req.body;
+  let { codCurso, nome, modulo, cargaHoraria, disciplinasCadastradas } = req.body;
 
   // INSERT
   Curso.create({
@@ -87,7 +105,7 @@ router.post('/add', (req, res) => {
     nome,
     modulo,
     cargaHoraria,
-
+    disciplinasCadastradas,
   })
     .then(() =>
       res.render('admin/curso/msg-cadastro')

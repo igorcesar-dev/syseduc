@@ -2,9 +2,6 @@ const Sequelize = require('sequelize');
 const db = require("../db/connection");
 
 const Disciplina = db.define('disciplina', {
-    codDisciplina: {
-        type: Sequelize.INTEGER,
-    },
     nome: {
         type: Sequelize.STRING,
     },

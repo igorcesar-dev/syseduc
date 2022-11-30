@@ -1,11 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Disciplina = require('../models/Disciplina');
+const Educador = require('../models/Educador');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 router.get('/cadastrarDisciplinas', (req, res) => {
-  res.render('admin/disciplina/cadastrarDisciplinas');
+  Educador.findAll({
+    order: [
+      ['createdAt', 'DESC']
+    ]
+  })
+    .then(educadores => {
+      res.render('admin/disciplina/cadastrarDisciplinas', {
+        educadores
+      });
+    })
 });
 
 /* EXIBIÇÃO, BUSCA (ALUNOS); */
@@ -13,7 +23,7 @@ router.get('/disciplinas/exibirDisciplinas', (req, res) => {
 
   let search = req.query.disciplina;
   /*   let search = qAluno.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-   */  
+   */
   let query = '%' + search + '%'; // PH -> PHP, Word -> Wordpress, press -> Wordpress
   if (!search) {
     Disciplina.findAll({
@@ -38,7 +48,7 @@ router.get('/disciplinas/exibirDisciplinas', (req, res) => {
     })
       .then(disciplinas => {
         res.render('admin/disciplina/exibirDisciplinas', {
-            disciplinas, search
+          disciplinas, search
         });
 
       })
@@ -51,7 +61,14 @@ router.get('/editdisciplinas/:id', (req, res) => {
   Disciplina.findAll({
     where: { id: req.params.id }
   }).then((disciplinas) => {
-    res.render("admin/disciplina/editarDisciplinas", { disciplinas: disciplinas })
+    Educador.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
+      .then(educadores => {
+        res.render("admin/disciplina/editarDisciplinas", { educadores: educadores, disciplinas: disciplinas })
+      })
   }).catch((err) => {
     res.render("admin/disciplina/exibirDisciplinas")
   })
@@ -88,12 +105,12 @@ router.post('/add', (req, res) => {
 
   // INSERT
   Disciplina.create({
-    codDisciplina, 
-    nome, 
-    educador, 
-    codCurso, 
-    horario, 
-    semestre, 
+    codDisciplina,
+    nome,
+    educador,
+    codCurso,
+    horario,
+    semestre,
     ministrante
   })
     .then(() =>

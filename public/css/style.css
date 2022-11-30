@@ -318,10 +318,6 @@ input {
     margin-bottom: 50px;
 }
 
-.title-2 {
-    margin-left: 50px;
-}
-
 input:invalid{
     border-color: rgb(206, 1, 1);
 }
@@ -399,4 +395,53 @@ th {
 .disciplina input {
     width: 15px;
     margin-left: 10px;
+}
+
+.box-disciplinas {
+    display: flex;
+    height: 200px;
+}
+
+#disciplinas-curso {
+    width: 80rem;
+    place-items: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.scroll {
+    display: flex;
+    margin: 10px;
+}
+
+.selecionar-disciplinas input {
+    width: 15px;
+    margin: 0px 0px 0px 0px;
+}
+
+.card {
+    width: 95%;
+    margin-left: 35px;
+    padding-left: 5px;
+}
+
+.accordion {
+    width: 95%;
+    margin-left: 35px;
+    margin-bottom: 30px;
+}
+
+.accordion-body {
+    height: 300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.title-2 {
+    margin-left: 35px;
+}
+
+.card-body ul {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
 }

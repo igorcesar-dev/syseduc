@@ -13,6 +13,9 @@ const Curso = db.define('cursos', {
     },
     cargaHoraria: {
         type: Sequelize.STRING,
+    },
+    disciplinasCadastradas: {
+        type:Sequelize.JSON,
     }
     
 });
