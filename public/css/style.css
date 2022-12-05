@@ -100,13 +100,13 @@ body {
     height: 45px;
     margin: 50px 10px 5px 100px;
     border: solid 1px;
-    border-radius:5px;
+    border-radius: 5px;
     padding: 10px;
     font-size: 20px;
 }
 
 .box-buttons {
-    width:50%;
+    width: 50%;
     display: flex;
     align-items: center;
     margin-right: 20px;
@@ -121,7 +121,7 @@ body {
     border-radius: 5px;
     background-color: var(--gunmetal);
     text-decoration: none;
-    color: #fff;   
+    color: #fff;
 }
 
 .btn-info:hover {
@@ -182,8 +182,8 @@ body {
     cursor: pointer;
 }
 
-.container {    
-    margin: 50px 10px ;
+.container {
+    margin: 50px 10px;
     padding: 10px;
 }
 
@@ -228,17 +228,17 @@ body {
 
 .btn-limpar-filtro {
     display: flex;
-    width: 60px; 
+    width: 60px;
     height: 25px;
     background-color: var(--cinnabar);
-    color:#fff; 
-    border: solid 1px black; 
+    color: #fff;
+    border: solid 1px black;
     border-radius: 5px;
-    text-decoration: none; 
+    text-decoration: none;
     margin-left: 100px;
     margin-bottom: 50px;
-    font-size: 12px; 
-    align-items: center; 
+    font-size: 12px;
+    align-items: center;
     justify-content: center;
 }
 
@@ -318,10 +318,11 @@ input {
     margin-bottom: 50px;
 }
 
-input:invalid{
+input:invalid {
     border-color: rgb(206, 1, 1);
 }
-input:valid{
+
+input:valid {
     border-color: rgb(9, 170, 9);
 }
 
@@ -340,13 +341,13 @@ footer {
 .tabela {
     display: grid;
     border-radius: 5px;
-    place-items: center ;
+    place-items: center;
 }
 
 table {
     width: 90%;
     height: 40px;
-    background-color:var(--gunmetal);
+    background-color: var(--gunmetal);
     text-align: left;
     color: #fff;
     border-radius: 5px;
@@ -371,10 +372,10 @@ table {
 }
 
 th {
-    padding-left: 20px;   
+    padding-left: 20px;
 }
 
-.obrigatorio{
+.obrigatorio {
     color: red;
 }
 
@@ -408,7 +409,7 @@ th {
     width: 80rem;
     place-items: center;
     border-radius: 5px;
-    padding: 20px;
+    gap: 10px;
 }
 
 #disciplinas-aluno {
@@ -416,7 +417,6 @@ th {
     grid-template-columns: repeat(3, 3fr);
     place-items: center;
     border-radius: 5px;
-    padding: 20px;
 }
 
 .scroll {
@@ -426,11 +426,17 @@ th {
 
 .selecionar-disciplinas input {
     width: 15px;
-    margin: 0px 0px 0px 0px;
+    margin: 0px 0px z0px 0px;
 }
 
 .card {
-    width: 100%;
+    width: 95%;
+    margin: 30px;
+}
+
+.card-cadastro {
+    width: 95%;
+    margin: 10px;
 }
 
 .accordion {
@@ -440,7 +446,7 @@ th {
 }
 
 .accordion-body {
-    height: 300px;
+    height: 250px;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -449,15 +455,17 @@ th {
     margin-left: 35px;
 }
 
+.card-body-c {
+    margin-top: 15px;
+}
 
 .card-body-d {
     height: 200px;
     display: grid;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
 .card-body ul {
-    margin: 0px;
     padding: 0px;
 }
 
@@ -471,7 +479,7 @@ th {
 }
 
 .disciplinas-alunos {
-    padding: 30px;
+    padding: 10px;
 }
 
 .card-text {
@@ -480,4 +488,20 @@ th {
 
 input {
     border-radius: 10px;
+    padding-left: 5px;
+}
+
+.check-curso {
+    display: block;
+    margin: 0 auto;
+}
+
+.form-check input {
+    margin-top: 9px;
+}
+
+.mostrar-cursos ul {
+    margin: 0px;
+    padding: 0px 0px 0px 10px;
+
 }

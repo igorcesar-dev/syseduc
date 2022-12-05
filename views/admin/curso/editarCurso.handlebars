@@ -6,7 +6,7 @@
         <h1 class="title-cadastro">Informações do curso:</h1>
         <div class="card">
             <div class="card-body">
-                <h2 class="title-2">Dados do curso {{dataValues.nome}}:</h2>
+                <h2 class="title-2">Dados do curso: {{dataValues.nome}}</h2>
             </div>
         </div>
         <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
@@ -56,7 +56,7 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h2 class="title-2">Disciplinas do curso de {{dataValues.nome}}</h2>
+                        <h2 class="title-2">Disciplinas do curso: {{dataValues.nome}}</h2>
                     </button>
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -72,8 +72,8 @@
 
                                 for (valor = 0; valor < quantidade; valor++) {
                                     inner.innerHTML += ` 
-                                <div class="card scroll">
-                                    <div class="card-body selecionar-disciplinas"> 
+                                <div class="card scroll card-cadastro">
+                                    <div class="card-body-c selecionar-disciplinas"> 
                                         <ul>
                                             <li>
                                                 <label for="${dividir[valor]}"> ${dividir[valor]}</label>

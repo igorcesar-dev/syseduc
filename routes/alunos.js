@@ -61,7 +61,17 @@ router.get('/edit/:id', (req, res) => {
   Aluno.findAll({
     where: { id: req.params.id }
   }).then((alunos) => {
-    res.render("admin/aluno/editarAluno", { alunos: alunos })
+    Curso.findAll({
+      order: [
+        ['createdAt', 'DESC']
+      ]
+    })
+      .then(cursos => {
+        res.render("admin/aluno/editarAluno", {
+          alunos: alunos,
+          cursos: cursos
+        })
+      })
   }).catch((err) => {
     res.render("admin/aluno/exibirAlunos")
   })
@@ -85,6 +95,7 @@ router.post("/edit/:id", (req, res) => {
     alunos.cep = req.body.cep
     alunos.email = req.body.email
     alunos.telefone = req.body.telefone
+    alunos.cursosMatriculados = req.body.cursosMatriculados
 
     alunos.save().then(() => {
       res.render("admin/aluno/msg-edicao")
@@ -101,7 +112,7 @@ router.post("/edit/:id", (req, res) => {
 
 // ADD ALUNO VIA POST
 router.post('/add', (req, res) => {
-  let { matricula, nome, tipo, cpf, nascimento, responsavel, rua, bairro, numero, cidade, estado, cep, email, telefone } = req.body;
+  let { matricula, nome, tipo, cpf, nascimento, responsavel, rua, bairro, numero, cidade, estado, cep, email, telefone, cursosMatriculados } = req.body;
 
   // INSERT
   Aluno.create({
@@ -119,6 +130,7 @@ router.post('/add', (req, res) => {
     cep,
     email,
     telefone,
+    cursosMatriculados,
   })
     .then(() =>
       res.render('admin/aluno/msg-cadastro')

@@ -169,12 +169,12 @@
                 </p>
 
                 {{!-- Responsável --}}
-                <p>
+                {{!--<p>
                     <label for="responsavel">Responsável:<small class="obrigatorio"> *</small></label>
                     <input id="responsavel" name="responsavel"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" type="text"
                         value="PRECISA DO MÓDULO RESPONSÁVEL" style="background-color: red; " />
-                </p>
+                </p> --}}
             </div>
         </div>
 
@@ -251,15 +251,14 @@
                                         <h5 class="card-title">{{dataValues.nome}}</h5>
                                         <p class="card-text" id="mostrarValores">{{dataValues.disciplinasCadastradas}}
                                         </p>
-                                        <p class="card-text">
-                                        <div class="form-check form-switch">
-                                            <input class="form-check-input" type="checkbox" role="switch"
-                                                id="flexSwitchCheckDefault" value="{{dataValues.nome}}"
-                                                id="disciplinasCadastradas" name="disciplinasCadastradas">
+                                        <div class="form-check form-switch select-curso">
+                                            <input class="form-check-input check-curso" type="checkbox" role="switch"
+                                                value="{{dataValues.nome}}" id="cursosMatriculados"
+                                                name="cursosMatriculados">
                                             <label class="form-check-label" for="flexSwitchCheckDefault">Selecionar
                                                 este</label>
                                         </div>
-                                        </p>
+
                                     </div>
                                 </div>
 
@@ -270,10 +269,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />

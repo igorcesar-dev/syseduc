@@ -169,12 +169,12 @@
                 </p>
 
                 {{!-- Responsável --}}
-                <p>
+                {{!-- <p>
                     <label for="responsavel">Responsável:<small class="obrigatorio"> *</small></label>
                     <input id="responsavel" name="responsavel"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" type="text"
                         value="PRECISA DO MÓDULO RESPONSÁVEL" style="background-color: red; " />
-                </p>
+                </p> --}}
             </div>
         </div>
 
@@ -230,60 +230,45 @@
             </div>
 
         </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h2 class="title-2">Cursos matriculados</h2>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{!-- Disciplinas que o Curso Contêm --}}
+                        <div id="disciplinas-aluno">
+                            <div class="card" style="width: 18rem;">
+                                <div class="disciplinas-alunos">
 
-        <h2 class="title-2">Curso: (EM BREVE...)</h2>
+                                    <div class="scroll">
+                                        <div class="mostrar-cursos">
+                                            <ul>
+                                                <li>
+                                                    <label
+                                                        for="cursosMatriculados">{{dataValues.cursosMatriculados}}</label>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
 
-        <div class="div-info">
-            <div class="grid-info">
-                {{!--
-                <p class="rua">
-                    <label class="rua-aluno" for="rua_cad">Rua:<small class="obrigatorio"> *</small></label>
-                    <input class="cad-input" id="rua" name="rua"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.rua}}" autocomplete="off" />
-                </p>
 
-                <p class="bairro">
-                    <label class="bairro-aluno" for="rua_cad">Bairro:<small class="obrigatorio"> *</small></label>
-                    <input class="cad-input" id="bairro" name="bairro"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.bairro}}" autocomplete="off" />
-                </p>
 
-                <p class="numero">
-                    <label class="numero-aluno" for="numero_cad">Número:<small class="obrigatorio"> *</small></label>
-                    <input class="nome-input" id="numero" name="numero"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.numero}}" onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-                        autocomplete="off" />
-                </p>
 
-                <p class="cidade">
-                    <label class="cidade-aluno" for="cidade_cad">Cidade:<small class="obrigatorio"> *</small></label>
-                    <input class="nome-input" id="cidade" name="cidade"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.cidade}}" autocomplete="off" />
-                </p>
+                                </div>
 
-                <p class="estado">
-                    <label class="estado-aluno" for="nome_cad">UF:<small class="obrigatorio"> *</small></label>
-                    <input class="nome-input" id="estado" name="estado"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.estado}}" autocomplete="off" oninput="maiusculo(event)" maxlength="2"
-                        minlength="2" />
-                </p>
-
-                <p class="cep">
-                    <label class="cep-aluno" for="cep_cad">CEP:<small class="obrigatorio"> *</small></label>
-                    <input class="nome-input" id="cep" name="cep"
-                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.cep}}" onkeyup="mascaraCEP()" minlength="9" maxlength="9"
-                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" autocomplete="no"
-                        oninput="setCustomValidity('')" />
-                </p> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </div>
+
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />
