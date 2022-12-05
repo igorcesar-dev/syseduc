@@ -37,6 +37,9 @@ const Educador = db.define('educadores', {
     },
     dataDemissao: {
         type: Sequelize.STRING,
+    },
+    disciplinasMinistradas: {
+        type: Sequelize.JSON,
     }
 });
 

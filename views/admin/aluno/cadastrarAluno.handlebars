@@ -88,8 +88,11 @@
 <div class="cadastro">
     <form action="/alunos/add" method="post">
         <h1 class="title-cadastro">Cadastrar aluno</h1>
-        <h2 class="title-2">Dados pessoais:</h2>
-        <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
+        <div class="card">
+            <div class="card-body">
+                <h2 class="title-2">Dados pessoais:</h2>
+            </div>
+        </div> <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
         <div class="div-info">
             <div class="grid-info">
 
@@ -227,21 +230,50 @@
             </div>
         </div>
 
-        <h2 class="title-2" style="color: red;">Cadastrar cursos: (A CONCLUIR)</h2>
-        <div class="div-info">
-            <div class="margin-top"></div>
-            <h5>Selecione os cursos que o aluno irá realizar:</h5>
-            <br>
-            {{#each educadores}}
-            <div class="disciplina-info">
-                <p class="disciplina" style="margin-bottom: 0px;">
-                    <input class="cad-input" id="rua" name="rua" type="checkbox" value="{{dataValues.nome}}" />
-                    <label class="disciplina-ministrada" for="rua_cad">{{dataValues.nome}}</label>
-                </p>
-            </div>
-            {{/each}}
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <h2 class="title-2">Cadastrar cursos</h2>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{!-- Disciplinas que o Curso Contêm --}}
+                        <div id="disciplinas-aluno">
+                            {{#each cursos}}
+                            <div class="card" style="width: 18rem;">
+                                <div class="disciplinas-alunos">
 
+                                    <div class="card-body-d">
+                                        <h5 class="card-title">{{dataValues.nome}}</h5>
+                                        <p class="card-text" id="mostrarValores">{{dataValues.disciplinasCadastradas}}
+                                        </p>
+                                        <p class="card-text">
+                                        <div class="form-check form-switch">
+                                            <input class="form-check-input" type="checkbox" role="switch"
+                                                id="flexSwitchCheckDefault" value="{{dataValues.nome}}"
+                                                id="disciplinasCadastradas" name="disciplinasCadastradas">
+                                            <label class="form-check-label" for="flexSwitchCheckDefault">Selecionar
+                                                este</label>
+                                        </div>
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
+
+
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />

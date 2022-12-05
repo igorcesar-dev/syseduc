@@ -1,11 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const Aluno = require('../models/Aluno');
+const Curso = require('../models/Curso');
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
 
 router.get('/cadastrarAluno', (req, res) => {
-  res.render('admin/aluno/cadastrarAluno');
+  Curso.findAll({
+    order: [
+      ['createdAt', 'DESC']
+    ]
+  })
+    .then(cursos => {
+      res.render('admin/aluno/cadastrarAluno', {
+        cursos
+      });
+    })
 });
 
 /* EXIBIÇÃO, BUSCA (ALUNOS); */
@@ -13,7 +23,7 @@ router.get('/alunos/exibirAlunos', (req, res) => {
 
   let search = req.query.aluno;
   /*   let search = qAluno.normalize('NFD').replace(/[\u0300-\u036f]/g, "")
-   */  
+   */
   let query = '%' + search + '%'; // PH -> PHP, Word -> Wordpress, press -> Wordpress
   if (!search) {
     Aluno.findAll({

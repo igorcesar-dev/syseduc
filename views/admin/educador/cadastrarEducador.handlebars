@@ -203,26 +203,6 @@
             </div>
         </div>
 
-        <h2 class="title-2" style="color: red;">Disciplinas ministradas: (A CONCLUIR)</h2>
-        <div class="div-info">
-            <div class="margin-top"></div>
-            <h5>Selecione as disciplinas ministradas pelo educador:</h5>
-            <br>
-            {{#each educadores}}
-            <div class="disciplina-info">
-                <p class="disciplina" style="margin-bottom: 0px;">
-                    <input class="cad-input" id="rua" name="rua" type="checkbox" value="{{dataValues.nome}}" />
-                    <label class="disciplina-ministrada" for="rua_cad">{{dataValues.nome}}</label>
-                </p>
-            </div>
-            {{/each}}
-
-        </div>
-
-
-
-
-
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />
     </form>

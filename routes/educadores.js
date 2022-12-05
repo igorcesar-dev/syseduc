@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Educador = require('../models/Educador');
 const Sequelize = require('sequelize');
+const Disciplina = require('../models/Disciplina');
 const Op = Sequelize.Op;
 
 router.get('/cadastrarEducador', (req, res) => {
@@ -11,7 +12,6 @@ router.get('/cadastrarEducador', (req, res) => {
     ]
   })
     .then(educadores => {
-
       res.render('admin/educador/cadastrarEducador', {
         educadores
       });
@@ -91,7 +91,7 @@ router.get('/editeducador/:id', (req, res) => {
     res.render("admin/educador/exibirEducadores")
   })
 })
-router.post("/editeducador/:id", (req, res) => {
+router.post("/editeducador/:id/", (req, res) => {
   Educador.findOne({
     where: { id: req.params.id }
   }).then((educadores) => {

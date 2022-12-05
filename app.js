@@ -4,11 +4,7 @@ const app = express();
 const path = require('path');
 const db = require('./db/connection');
 const bodyParser = require('body-parser');
-const Aluno = require('./models/Aluno');
-const Educador = require('./models/Educador');
-const Curso = require('./models/Curso');
 const PORT = 3000;
-
 
 const routerAlunos = require("./routes/alunos");
 const routerEducadores = require("./routes/educadores");
@@ -45,8 +41,6 @@ app.use("/", routerAlunos);
 app.use("/", routerEducadores);
 app.use("/", routerCursos);
 app.use("/", routerDisciplinas);
-
-// ROTAS 
 
 app.get('/', (req, res) => {
   res.render('index');

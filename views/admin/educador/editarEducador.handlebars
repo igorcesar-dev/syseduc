@@ -131,7 +131,7 @@
                     <br>
                     <input type="text" value="{{dataValues.turma}}">
 
-                    <select class="turma-input" name="turma" id="turma" required 
+                    <select class="turma-input" name="turma" id="turma" required
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')">
                         <option value="{{dataValues.turma}}">Escolha outra opção:</option>
                         <option value="laboratorio1">Laboratório 1</option>
@@ -209,24 +209,6 @@
                 </p>
             </div>
         </div>
-
-        <h2 class="title-2" style="color: red;">Disciplinas ministradas: (A CONCLUIR)</h2>
-        <div class="div-info">
-            <div class="margin-top"></div>
-            <h5>Selecione as disciplinas ministradas pelo educador:</h5>
-            <br>
-            <div class="disciplina-info">
-                <p class="disciplina" style="margin-bottom: 0px;">
-                    <input class="cad-input" id="rua" name="rua" type="checkbox" value="{{dataValues.nome}}" />
-                    <label class="disciplina-ministrada" for="rua_cad">{{dataValues.nome}}</label>
-                </p>
-            </div>
-
-        </div>
-
-
-
-
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />

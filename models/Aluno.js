@@ -43,7 +43,10 @@ const Aluno = db.define('aluno', {
     },
     telefone: {
         type: Sequelize.INTEGER,
-    }
+    },
+    cursosMatriculados: {
+        type: Sequelize.JSON,
+    },
 });
 
 module.exports = Aluno;

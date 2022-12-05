@@ -403,7 +403,17 @@ th {
 }
 
 #disciplinas-curso {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     width: 80rem;
+    place-items: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+#disciplinas-aluno {
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
     place-items: center;
     border-radius: 5px;
     padding: 20px;
@@ -420,9 +430,7 @@ th {
 }
 
 .card {
-    width: 95%;
-    margin-left: 35px;
-    padding-left: 5px;
+    width: 100%;
 }
 
 .accordion {
@@ -441,7 +449,35 @@ th {
     margin-left: 35px;
 }
 
+
+.card-body-d {
+    height: 200px;
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+}
+
 .card-body ul {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ul-curso {
+    height: auto;
+    padding: 0px;
+}
+
+.card-title {
+    text-align: left;
+}
+
+.disciplinas-alunos {
+    padding: 30px;
+}
+
+.card-text {
+    width: 205px;
+}
+
+input {
+    border-radius: 10px;
 }
