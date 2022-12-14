@@ -29,8 +29,29 @@
             <h1 class="nome-aluno">Nome completo: {{dataValues.nome}} </h1>
             <div class="box-buttons">
                 <a class="btn-info" href="/alunos/edit/{{dataValues.id}}"><span>Exibir mais informações</span></a>
-                <a class="link-btn" href="/removeraluno/{{dataValues.id}}"><button class="btn-excluir"><img
-                            src="/img/delete.png" alt="logo-trash"></button></a>
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <img src="/img/delete.png" alt="logo-trash"> </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header-delete">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Tem certeza que deseja deletar?</h1>
+                            </div>
+                            <div class="modal-footer-btn">
+                                <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">Não</button>
+                                <a class="link-btn" href="/removeraluno/{{dataValues.id}}"> <button type="button"
+                                        class="btn btn-primary">Sim</button>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -38,13 +59,9 @@
 {{/each}}
 
 {{#unless alunos}}
-<div class="container">
-    <!-- Página do modal -->
-    <div class="modal-overlay">
-        <div class="modal-container">
-            <h3>Nenhum resultado encontrado!</h3>
-            <a style="text-decoration: none;" href="/alunos/exibirAlunos"><button class="close-btn">Ok</button></a>
-        </div>
+<div class="card tabela">
+    <div class="card-body">
+        Nenhum resultado encontrado!
     </div>
 </div>
 {{/unless}}

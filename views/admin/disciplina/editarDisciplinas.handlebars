@@ -4,7 +4,7 @@
 <!-- CADASTRO -->
 <div class="cadastro">
     <form action="/disciplinas/editdisciplinas/{{dataValues.id}}" method="post">
-        <h1 class="title-cadastro">Editar disciplina</h1>
+        <h1 class="title-cadastro">Editar Disciplina</h1>
         <div class="card">
             <div class="card-body">
                 <h2 class="title-2">Informações da Disciplina: {{dataValues.nome}}</h2>
@@ -23,29 +23,32 @@
                         onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off"
                         value="{{dataValues.nome}}" />
                 </p>
-                {{!-- ministrante --}}
-                <p class="ministrante">
-                    <label class="ministrante" for="ministrante">Ministrante:<small class="obrigatorio">
-                            *</small></label><br>
-                    <input name="ministrante" id="ministrante" value="{{dataValues.ministrante}}" disabled="" required
-                        oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
-                        onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off">
-                </p>
 
-                {{!-- codigo do curso --}}
-                <p class="codCurso">
-                    <label class="codCurso" for="codCurso">Código do curso:<small class="obrigatorio">
+
+                {{!-- ministrante --}}
+                <p class="">
+                    <label class="turma-label" for="turma">Ministrante: <small class="obrigatorio">
                             *</small></label>
-                    <input class="nome-input" id="codCurso" name="codCurso" value="{{dataValues.codCurso}}" required
-                        oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
-                        onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off" />
+                    <br>
+                    <input type="text" value="{{dataValues.ministrante}}" disabled="">
+                    <select class="turma-input" name="ministrante" id="ministrante" required
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')">
+                        {{/each}}
+                        <option value="{{dataValues.ministrante}}">Escolha outro ministrante:</option>
+
+                        {{#each educadores}}
+                        <option value="{{dataValues.nome}}">{{dataValues.nome}}</option>
+                        {{/each}}
+                    </select>
                 </p>
+                {{#each disciplinas}}
+
 
                 {{!-- horario --}}
-                <p class="horario">
-                    <label class="horario" for="horario">Carga Horária:<small class="obrigatorio">
+                <p class="">
+                    <label class="" for="horario">Carga Horária:<small class="obrigatorio">
                             *</small></label>
-                    <input class="horario" id="horario" name="horario" value="{{dataValues.horario}}" required
+                    <input class="" id="horario" name="horario" value="{{dataValues.horario}}" required
                         oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
                         onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off" />
                 </p>
@@ -59,10 +62,9 @@
                 </p>
             </div>
         </div>
+        {{/each}}
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />
     </form>
 </div>
-
-{{/each}}

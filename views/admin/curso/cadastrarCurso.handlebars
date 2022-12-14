@@ -10,14 +10,6 @@
         </div> <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
         <div class="div-info">
             <div class="grid-info">
-                {{!-- Codigo Curso --}}
-                <p>
-                    <label for="CodCurso">Codigo do Curso:<small class="obrigatorio"> *</small></label>
-                    <input id="codCurso" name="codCurso" required
-                        oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
-                        onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off" />
-                </p>
-
                 {{!-- Nome --}}
                 <p>
                     <label for="nome_cad">Nome do Curso: <small class="obrigatorio">*</small></label>
@@ -45,34 +37,38 @@
             </div>
         </div>
 
+        <div class="card">
+            <h2 class="card-header">Cadastrar Disciplinas:</h2>
+            <div class="card-body scrl">
+                {{#each disciplinas}}
+                <div class="card">
+                    <div class="card-body ">
+                        <div id="disciplinas" >
+                            <div class="box-aluno-inline">
+                                <h1 class="nome-disciplina">Nome: {{dataValues.nome}}</h1>
+                                <h1 class="carga-horaria">Carga horária: {{dataValues.horario}} </h1>
+                                <h1 class="ministrante">Ministrante: {{dataValues.ministrante}} </h1>
+                                <h1 class="semestre">Semestre: {{dataValues.semestre}} </h1>
 
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h2 class="title-2">Cadastrar disciplinas</h2>
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {{!-- Disciplinas que o Curso Contêm --}}
-                        <div id="disciplinas-curso">
-                            {{#each disciplinas}}
-                            <div class="card scroll card-cadastro">
-                                <div class="card-body selecionar-disciplinas">
-                                    <input type="checkbox" id="disciplinasCadastradas" name="disciplinasCadastradas"
-                                        value="{{dataValues.nome}}">
-                                    <label for="{{dataValues.nome}}"> {{dataValues.nome}}</label>
+                                <div class="form-check form-switch select-curso">
+                                    <input class="form-check-input check-curso" type="checkbox" role="switch"
+                                        value="{{dataValues.nome}}" id="disciplinasCadastradas"
+                                        name="disciplinasCadastradas">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Selecionar
+                                        este</label>
                                 </div>
                             </div>
-                            {{/each}}
                         </div>
                     </div>
                 </div>
+                {{/each}}
+
             </div>
         </div>
+
+
+
+
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />

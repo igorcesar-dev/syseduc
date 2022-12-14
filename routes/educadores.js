@@ -59,11 +59,12 @@ router.get('/educadores/exibirEducadores', (req, res) => {
 
 // ADD EDUCADOR VIA POST
 router.post('/add', (req, res) => {
-  let { nome, rua, bairro, numero, cidade, estado, cep, email, telefone, turma, dataAdmissao, dataDemissao } = req.body;
+  let { nome, cpf, rua, bairro, numero, cidade, estado, cep, email, telefone, turma, dataAdmissao, dataDemissao } = req.body;
 
   // INSERT
   Educador.create({
     nome,
+    cpf,
     rua,
     bairro,
     numero,
@@ -97,6 +98,8 @@ router.post("/editeducador/:id/", (req, res) => {
   }).then((educadores) => {
 
     educadores.nome = req.body.nome
+    educadores.cpf = req.body.cpf
+    educadores.turma = req.body.turma
     educadores.matricula = req.body.matricula
     educadores.rua = req.body.rua
     educadores.bairro = req.body.bairro

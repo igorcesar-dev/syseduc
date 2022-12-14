@@ -1,7 +1,8 @@
+
+
+
 <!-- CADASTRO -->
 <script>
-
-
     function mascaraCPF() {
         var cpf = document.getElementById('cpf')
         if (cpf.value.length == 3 || cpf.value.length == 7) {
@@ -102,6 +103,16 @@
                         autocomplete="off" />
                 </p>
 
+                {{!-- Cpf --}}
+                <p class="cpf-aluno">
+                    <label class="cpf-aluno" for="cpf">CPF:<small class="obrigatorio"> *</small></label>
+                    <input class="cpf-input" id="cpf" name="cpf" required type="text" value="{{dataValues.cpf}}"
+                        minlength="14" maxlength="14" autocomplete="off"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" onkeyup="mascaraCPF()"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')"
+                        onblur="validarCPF(this)" />
+                </p>
+
                 {{!-- Email --}}
                 <p>
                     <label for="email">E-mail:<small class="obrigatorio"> *</small></label>
@@ -139,13 +150,6 @@
                     <label for="dataAdmissao">Data de admissão:<small class="obrigatorio"> *</small></label>
                     <input class="nome-input" id="dataAdmissao" name="dataAdmissao"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" type="date" required
-                        autocomplete="off" />
-                </p>
-
-                {{!-- Data de demissao --}}
-                <p>
-                    <label for="dataDemissao">Data de demissao:</label>
-                    <input class="dataDemissao-input" id="dataDemissao" name="dataDemissao" type="date"
                         autocomplete="off" />
                 </p>
             </div>

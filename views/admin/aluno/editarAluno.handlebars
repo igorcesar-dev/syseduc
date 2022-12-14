@@ -230,41 +230,32 @@
             </div>
 
         </div>
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h2 class="title-2">Cursos matriculados</h2>
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {{!-- Disciplinas que o Curso Contêm --}}
-                        <div id="disciplinas-aluno">
-                            <div class="card" style="width: 18rem;">
-                                <div class="disciplinas-alunos">
-
-                                    <div class="scroll">
-                                        <div class="mostrar-cursos">
-                                            <ul>
-                                                <li>
-                                                    <label
-                                                        for="cursosMatriculados">{{dataValues.cursosMatriculados}}</label>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
 
 
+         <div class="card">
+            <div class="card-header">
+                <h2 class="title-2">Cursos do aluno: {{dataValues.nome}}</h2>
+            </div>
+            <div class="card-body">
+                {{!-- Cursos que o aluno Contêm --}}
+                <div id="disciplinas-curso" class="scroll">
+                    <script>
+                        let inner = document.getElementById('disciplinas-curso');
+                        let disciplinas = "{{dataValues.cursosMatriculados}}";
+                        let dividir = disciplinas.split(",");
+                        let quantidade = dividir.length;
 
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                        for (valor = 0; valor < quantidade; valor++) {
+                            inner.innerHTML += ` 
+                                <div class="scroll">
+                                    <ul>
+                                        <li>
+                                            <div> ${dividir[valor]}</div>
+                                       </li>
+                                    </ul>
+                                </div>`
+                        }
+                    </script>
                 </div>
             </div>
         </div>

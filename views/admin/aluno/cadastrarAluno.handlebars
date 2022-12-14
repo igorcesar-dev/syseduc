@@ -1,7 +1,5 @@
 <!-- CADASTRO -->
 <script>
-
-
     function mascaraCPF() {
         var cpf = document.getElementById('cpf')
         if (cpf.value.length == 3 || cpf.value.length == 7) {
@@ -178,8 +176,11 @@
             </div>
         </div>
 
-        <h2 class="title-2">Endereço:</h2>
-
+        <div class="card">
+            <div class="card-body">
+                <h2 class="title-2">Endereço:</h2>
+            </div>
+        </div>
         <div class="div-info">
             <div class="grid-info">
                 <p class="rua">
@@ -230,43 +231,31 @@
             </div>
         </div>
 
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h2 class="title-2">Cadastrar cursos</h2>
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {{!-- Disciplinas que o Curso Contêm --}}
-                        <div id="disciplinas-aluno">
-                            {{#each cursos}}
-                            <div class="card" style="width: 18rem;">
-                                <div class="disciplinas-alunos">
+        <div class="card">
+            <h2 class="card-header">Cadastrar Cursos:</h2>
+            <div class="card-body scrl">
+                {{#each cursos}}
+                <div class="card">
+                    <div class="card-body ">
+                        <div id="disciplinas">
+                            <div class="box-aluno-inline">
+                                <h1 class="nome-disciplina">Nome: {{dataValues.nome}}</h1>
+                                <h1 class="carga-horaria">Carga horária: {{dataValues.cargaHoraria}} </h1>
+                                <h1 class="disciplinas">Disciplinas: {{dataValues.disciplinasCadastradas}} </h1>
 
-                                    <div class="card-body-d">
-                                        <h5 class="card-title">{{dataValues.nome}}</h5>
-                                        <p class="card-text" id="mostrarValores">{{dataValues.disciplinasCadastradas}}
-                                        </p>
-                                        <div class="form-check form-switch select-curso">
-                                            <input class="form-check-input check-curso" type="checkbox" role="switch"
-                                                value="{{dataValues.nome}}" id="cursosMatriculados"
-                                                name="cursosMatriculados">
-                                            <label class="form-check-label" for="flexSwitchCheckDefault">Selecionar
-                                                este</label>
-                                        </div>
 
-                                    </div>
+                                <div class="form-check form-switch select-curso">
+                                    <input class="form-check-input check-curso" type="checkbox" role="switch"
+                                        value="{{dataValues.nome}}" id="cursosMatriculados" name="cursosMatriculados">
+                                    <label class="form-check-label" for="flexSwitchCheckDefault">Selecionar
+                                        este</label>
                                 </div>
-
                             </div>
-                            {{/each}}
                         </div>
                     </div>
                 </div>
+                {{/each}}
+
             </div>
         </div>
 

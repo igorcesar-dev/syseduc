@@ -1,7 +1,7 @@
 <!-- CADASTRO -->
 <div class="cadastro">
     <form action="/disciplinas/add" method="post">
-        <h1 class="title-cadastro">Cadastrar disciplina</h1>
+        <h1 class="title-cadastro">Cadastrar Disciplina</h1>
         <div class="card">
             <div class="card-body">
                 <h2 class="title-2">Informações da Disciplina:</h2>
@@ -19,8 +19,8 @@
                 </p>
 
                 {{!-- ministrante --}}
-                <p class="ministrante">
-                    <label class="ministrante" for="ministrante">Ministrante:<small class="obrigatorio">
+                <p class="">
+                    <label class="" for="ministrante">Ministrante:<small class="obrigatorio">
                             *</small></label><br>
                     <select name="ministrante" id="ministrante" required
                         oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
@@ -32,21 +32,11 @@
                     </select>
                 </p>
 
-
-                {{!-- codigo do curso --}}
-                <p class="codCurso">
-                    <label class="codCurso" for="codCurso">Código do curso:<small class="obrigatorio">
-                            *</small></label>
-                    <input class="nome-input" id="codCurso" name="codCurso" required
-                        oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
-                        onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off" />
-                </p>
-
                 {{!-- horario --}}
-                <p class="horario">
-                    <label class="horario" for="horario">Carga Horária:<small class="obrigatorio">
+                <p class="">
+                    <label class="" for="horario">Carga Horária:<small class="obrigatorio">
                             *</small></label>
-                    <input class="horario" id="horario" name="horario" required
+                    <input class="" id="horario" name="horario" required
                         oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
                         onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off" />
                 </p>

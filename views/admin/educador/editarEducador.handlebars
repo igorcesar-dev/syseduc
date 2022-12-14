@@ -88,7 +88,7 @@
     }
 </script>
 <div class="cadastro">
-    <form action="/educadores/add" method="post">
+    <form action="/editeducador/{{dataValues.id}}/" method="post">
         <h1 class="title-cadastro">Editar informações do educador</h1>
         <h2 class="title-2">Dados pessoais:</h2>
         <small class="obrigatorio2 obrigatorio">(*) Campos obrigatórios</small>
@@ -102,6 +102,16 @@
                     <input class="nome-input" id="nome" name="nome"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
                         autocomplete="off" value="{{dataValues.nome}}" />
+                </p>
+
+                {{!-- Cpf --}}
+                <p class="cpf-aluno">
+                    <label class="cpf-aluno" for="cpf">CPF:<small class="obrigatorio"> *</small></label>
+                    <input class="cpf-input" id="cpf" name="cpf" required type="text" value="{{dataValues.cpf}}"
+                        minlength="14" maxlength="14" autocomplete="off"
+                        onkeypress="return event.charCode >= 48 && event.charCode <= 57" onkeyup="mascaraCPF()"
+                        oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')"
+                        onblur="validarCPF(this)" />
                 </p>
 
                 {{!-- Email --}}
@@ -129,11 +139,10 @@
                     <label class="turma-label" for="turma">Turma: <small class="obrigatorio">
                             *</small></label>
                     <br>
-                    <input type="text" value="{{dataValues.turma}}">
-
+                    <input type="text" value="{{dataValues.turma}}" disabled="">
                     <select class="turma-input" name="turma" id="turma" required
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')">
-                        <option value="{{dataValues.turma}}">Escolha outra opção:</option>
+                        <option value="{{dataValues.turma}}">Escolha uma turma:</option>
                         <option value="laboratorio1">Laboratório 1</option>
                         <option value="laboratorio2">Laboratório 2</option>
                     </select>

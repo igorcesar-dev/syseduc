@@ -66,6 +66,12 @@ body {
     margin: 0 auto;
 }
 
+#disciplinas {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
 #pesquisa {
     width: 100%;
     display: inline;
@@ -91,6 +97,68 @@ body {
     border-right: solid 1px black;
     margin-bottom: 0px;
     margin-left: 20px;
+}
+
+.nome-disciplina {
+    width: 30%;
+    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    padding-right: 50px;
+
+}
+
+.semestre {
+    width: auto;
+    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 50px;
+}
+
+.ministrante {
+    width: auto;
+    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    padding-right: 50px;
+}
+
+.disciplinas {
+    width: 30%;
+    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-right: 50px;
+}
+
+.carga-horaria {
+    width: auto;
+    font-size: 16px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    border-right: solid 1px black;
+    margin-bottom: 0px;
+    margin-left: 20px;
+    padding-right: 50px;
 
 }
 
@@ -404,12 +472,7 @@ th {
 }
 
 #disciplinas-curso {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 80rem;
-    place-items: center;
-    border-radius: 5px;
-    gap: 10px;
+    margin-left: 50px;
 }
 
 #disciplinas-aluno {
@@ -420,13 +483,22 @@ th {
 }
 
 .scroll {
-    display: flex;
     margin: 10px;
+}
+
+.scrl {
+    height: 280px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .selecionar-disciplinas input {
     width: 15px;
     margin: 0px 0px z0px 0px;
+}
+
+.select-curso {
+    margin-top: 5px;
 }
 
 .card {
@@ -437,6 +509,10 @@ th {
 .card-cadastro {
     width: 95%;
     margin: 10px;
+}
+
+.card-exibir-disciplinas {
+    flex-direction: column;
 }
 
 .accordion {
@@ -487,7 +563,7 @@ th {
 }
 
 input {
-    border-radius: 10px;
+    border-radius: 5px;
     padding-left: 5px;
 }
 
@@ -504,4 +580,20 @@ input {
     margin: 0px;
     padding: 0px 0px 0px 10px;
 
+}
+
+.modal-footer-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-footer-btn button {
+    width: 100px;
+    height: 50px;
+    margin: 20px;
+}
+
+.modal-header-delete{
+    margin-top: 20px;
+   text-align: center;
 }

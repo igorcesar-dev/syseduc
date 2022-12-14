@@ -19,7 +19,7 @@
                     <input id="codCurso" name="codCurso" required
                         oninvalid="this.setCustomValidity('Preencha todos os campos obrigatórios!')"
                         onchange="try{setCustomValidity('')}catch(e){}" type="text" autocomplete="off"
-                        value="{{dataValues.codCurso}}" />
+                        value="{{dataValues.id}}" disabled="" />
                 </p>
 
                 {{!-- Nome --}}
@@ -46,49 +46,40 @@
                     <label for="cargaHoraria">C. Horária:<small class="obrigatorio"> *</small></label>
                     <input id="cargaHoraria" name="cargaHoraria"
                         oninvalid="setCustomValidity('Preencha todos os campos obrigatórios!')" required type="text"
-                        value="{{dataValues.cargaHoraria}}"/>
+                        value="{{dataValues.cargaHoraria}}" />
                 </p>
             </div>
         </div>
 
-        <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <h2 class="title-2">Disciplinas do curso: {{dataValues.nome}}</h2>
-                    </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                    data-bs-parent="#accordionExample">
-                    <div class="accordion-body">
-                        {{!-- Disciplinas que o Curso Contêm --}}
-                        <div id="disciplinas-curso">
-                            <script>
-                                let inner = document.getElementById('disciplinas-curso');
-                                let disciplinas = "{{dataValues.disciplinasCadastradas}}";
-                                let dividir = disciplinas.split(",");
-                                let quantidade = dividir.length;
+        <div class="card">
+            <div class="card-header">
+                <h2 class="title-2">Disciplinas do curso: {{dataValues.nome}}</h2>
+            </div>
+            <div class="card-body">
+                {{!-- Disciplinas que o Curso Contêm --}}
+                <div id="disciplinas-curso" class="scroll">
+                    <script>
+                        let inner = document.getElementById('disciplinas-curso');
+                        let disciplinas = "{{dataValues.disciplinasCadastradas}}";
+                        let dividir = disciplinas.split(",");
+                        let quantidade = dividir.length;
 
-                                for (valor = 0; valor < quantidade; valor++) {
-                                    inner.innerHTML += ` 
-                                <div class="card scroll card-cadastro">
-                                    <div class="card-body-c selecionar-disciplinas"> 
-                                        <ul>
-                                            <li>
-                                                <label for="${dividir[valor]}"> ${dividir[valor]}</label>
-                                            </li>
-                                        </ul>
-                                    </div>
+                        for (valor = 0; valor < quantidade; valor++) {
+                            inner.innerHTML += ` 
+                                <div class="scroll">
+                                    <ul>
+                                        <li>
+                                            <div> ${dividir[valor]}</div>
+                                       </li>
+                                    </ul>
                                 </div>`
-                                }
-                            </script>
-                        </div>
-                    </div>
+                        }
+                    </script>
                 </div>
             </div>
-            {{/each}}
         </div>
+
+        {{/each}}
 
         <input class="btn btn-secondary btn-cadastrar-submit" style="border: none; background-color: #0c7c59;"
             type="submit" value="Salvar" />

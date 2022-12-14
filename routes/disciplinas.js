@@ -125,7 +125,7 @@ router.get('/removerdisciplina/:id', function (req, res) {
   Disciplina.destroy({
     where: { 'id': req.params.id }
   }).then(function () {
-    res.render('admin/aluno/msg-exclusao')
+    res.render('admin/disciplina/msg-exclusao')
   }).catch(function (erro) {
     res.send("Aluno não foi removido!")
   })

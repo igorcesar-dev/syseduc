@@ -5,6 +5,9 @@ const Educador = db.define('educadores', {
     nome: {
         type: Sequelize.STRING,
     },
+    cpf: {
+        type: Sequelize.STRING,
+    },
     rua: {
         type: Sequelize.STRING,
     },
